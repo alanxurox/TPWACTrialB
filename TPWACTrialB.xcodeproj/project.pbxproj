@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1285BD894CE91A9DC0C18F24 /* libPods-TPWACTrialB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DFAC36860427BA573877195 /* libPods-TPWACTrialB.a */; };
+		583C86AD23FAEA93002C4C0B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 583C86AC23FAEA93002C4C0B /* Podfile */; };
+		583C86AF23FAEB8C002C4C0B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 583C86AE23FAEB8C002C4C0B /* GoogleService-Info.plist */; };
+		583C86B423FAEEC0002C4C0B /* Temp_Calendar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 583C86B323FAEEC0002C4C0B /* Temp_Calendar.jpg */; };
 		ED32264D23F735CE00A799E7 /* ViewControllerCreateActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32264C23F735CE00A799E7 /* ViewControllerCreateActivity.swift */; };
 		ED32264F23F7363D00A799E7 /* ViewControllerEditRemove.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32264E23F7363D00A799E7 /* ViewControllerEditRemove.swift */; };
 		ED32265123F7366E00A799E7 /* ViewControllerCheckIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32265023F7366E00A799E7 /* ViewControllerCheckIn.swift */; };
@@ -19,7 +23,6 @@
 		ED57970923F4AD2D00C4301D /* TPWACTrialBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED57970823F4AD2D00C4301D /* TPWACTrialBTests.swift */; };
 		ED57971423F4AD2D00C4301D /* TPWACTrialBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED57971323F4AD2D00C4301D /* TPWACTrialBUITests.swift */; };
 		ED78DC1B23F6EDD300F6B648 /* ViewControllerHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED78DC1A23F6EDD300F6B648 /* ViewControllerHome.swift */; };
-		ED78DC1D23F6F84100F6B648 /* Temp_Calendar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED78DC1C23F6F84100F6B648 /* Temp_Calendar.jpg */; };
 		EDBC092723F71BAF007DD85A /* ViewControllerAvailibleAndSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBC092623F71BAF007DD85A /* ViewControllerAvailibleAndSignUp.swift */; };
 		EDBC092923F71BFA007DD85A /* ViewControllerStudents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBC092823F71BFA007DD85A /* ViewControllerStudents.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +45,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		53E1852C011440D05DE2A8D6 /* Pods-TPWACTrialB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPWACTrialB.release.xcconfig"; path = "Pods/Target Support Files/Pods-TPWACTrialB/Pods-TPWACTrialB.release.xcconfig"; sourceTree = "<group>"; };
+		583C86AC23FAEA93002C4C0B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		583C86AE23FAEB8C002C4C0B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		583C86B323FAEEC0002C4C0B /* Temp_Calendar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Temp_Calendar.jpg; path = ../../../Downloads/Temp_Calendar.jpg; sourceTree = "<group>"; };
+		6DFAC36860427BA573877195 /* libPods-TPWACTrialB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TPWACTrialB.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED32264C23F735CE00A799E7 /* ViewControllerCreateActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCreateActivity.swift; sourceTree = "<group>"; };
 		ED32264E23F7363D00A799E7 /* ViewControllerEditRemove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerEditRemove.swift; sourceTree = "<group>"; };
 		ED32265023F7366E00A799E7 /* ViewControllerCheckIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCheckIn.swift; sourceTree = "<group>"; };
@@ -60,9 +68,9 @@
 		ED57971323F4AD2D00C4301D /* TPWACTrialBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPWACTrialBUITests.swift; sourceTree = "<group>"; };
 		ED57971523F4AD2D00C4301D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED78DC1A23F6EDD300F6B648 /* ViewControllerHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHome.swift; sourceTree = "<group>"; };
-		ED78DC1C23F6F84100F6B648 /* Temp_Calendar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Temp_Calendar.jpg; path = ../../../Temp_Calendar.jpg; sourceTree = "<group>"; };
 		EDBC092623F71BAF007DD85A /* ViewControllerAvailibleAndSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAvailibleAndSignUp.swift; sourceTree = "<group>"; };
 		EDBC092823F71BFA007DD85A /* ViewControllerStudents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerStudents.swift; sourceTree = "<group>"; };
+		F62993BD3ECCED1D8B894961 /* Pods-TPWACTrialB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPWACTrialB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TPWACTrialB/Pods-TPWACTrialB.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1285BD894CE91A9DC0C18F24 /* libPods-TPWACTrialB.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,10 +102,13 @@
 		ED5796E523F4AD2B00C4301D = {
 			isa = PBXGroup;
 			children = (
+				583C86AC23FAEA93002C4C0B /* Podfile */,
 				ED5796F023F4AD2B00C4301D /* TPWACTrialB */,
 				ED57970723F4AD2D00C4301D /* TPWACTrialBTests */,
 				ED57971223F4AD2D00C4301D /* TPWACTrialBUITests */,
 				ED5796EF23F4AD2B00C4301D /* Products */,
+				F0631D22F10A66A23A92B0DF /* Pods */,
+				F716505DF2D493612CF83E33 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,6 +125,8 @@
 		ED5796F023F4AD2B00C4301D /* TPWACTrialB */ = {
 			isa = PBXGroup;
 			children = (
+				583C86B323FAEEC0002C4C0B /* Temp_Calendar.jpg */,
+				583C86AE23FAEB8C002C4C0B /* GoogleService-Info.plist */,
 				ED5796F123F4AD2B00C4301D /* AppDelegate.swift */,
 				ED5796F323F4AD2B00C4301D /* SceneDelegate.swift */,
 				ED5796F523F4AD2B00C4301D /* ViewController.swift */,
@@ -122,7 +136,6 @@
 				ED32264C23F735CE00A799E7 /* ViewControllerCreateActivity.swift */,
 				EDBC092823F71BFA007DD85A /* ViewControllerStudents.swift */,
 				EDBC092623F71BAF007DD85A /* ViewControllerAvailibleAndSignUp.swift */,
-				ED78DC1C23F6F84100F6B648 /* Temp_Calendar.jpg */,
 				ED78DC1A23F6EDD300F6B648 /* ViewControllerHome.swift */,
 				ED5796FA23F4AD2C00C4301D /* Assets.xcassets */,
 				ED5796FC23F4AD2C00C4301D /* LaunchScreen.storyboard */,
@@ -149,6 +162,23 @@
 			path = TPWACTrialBUITests;
 			sourceTree = "<group>";
 		};
+		F0631D22F10A66A23A92B0DF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F62993BD3ECCED1D8B894961 /* Pods-TPWACTrialB.debug.xcconfig */,
+				53E1852C011440D05DE2A8D6 /* Pods-TPWACTrialB.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F716505DF2D493612CF83E33 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6DFAC36860427BA573877195 /* libPods-TPWACTrialB.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -156,9 +186,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED57971823F4AD2D00C4301D /* Build configuration list for PBXNativeTarget "TPWACTrialB" */;
 			buildPhases = (
+				B9156E167D743776F83DC015 /* [CP] Check Pods Manifest.lock */,
 				ED5796EA23F4AD2B00C4301D /* Sources */,
 				ED5796EB23F4AD2B00C4301D /* Frameworks */,
 				ED5796EC23F4AD2B00C4301D /* Resources */,
+				DDB9ECFFB2C89796CFC55D59 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,10 +285,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				583C86AD23FAEA93002C4C0B /* Podfile in Resources */,
+				583C86B423FAEEC0002C4C0B /* Temp_Calendar.jpg in Resources */,
 				ED5796FE23F4AD2C00C4301D /* LaunchScreen.storyboard in Resources */,
 				ED5796FB23F4AD2C00C4301D /* Assets.xcassets in Resources */,
 				ED5796F923F4AD2B00C4301D /* Main.storyboard in Resources */,
-				ED78DC1D23F6F84100F6B648 /* Temp_Calendar.jpg in Resources */,
+				583C86AF23FAEB8C002C4C0B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +309,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B9156E167D743776F83DC015 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TPWACTrialB-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DDB9ECFFB2C89796CFC55D59 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TPWACTrialB/Pods-TPWACTrialB-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TPWACTrialB/Pods-TPWACTrialB-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ED5796EA23F4AD2B00C4301D /* Sources */ = {
@@ -460,6 +533,7 @@
 		};
 		ED57971923F4AD2D00C4301D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F62993BD3ECCED1D8B894961 /* Pods-TPWACTrialB.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -477,6 +551,7 @@
 		};
 		ED57971A23F4AD2D00C4301D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53E1852C011440D05DE2A8D6 /* Pods-TPWACTrialB.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

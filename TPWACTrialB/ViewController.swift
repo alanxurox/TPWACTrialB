@@ -7,11 +7,17 @@
 //
 
 import UIKit
+import Firebase
+
+var ref : DatabaseReference = Database.database().reference()
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         // Do any additional setup after loading the view.
        //creates a clear navigation bar
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
