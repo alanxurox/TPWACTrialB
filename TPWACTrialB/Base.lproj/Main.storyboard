@@ -39,6 +39,11 @@
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iCR-Rw-5Vz" customClass="GIDSignInButton">
+                                <rect key="frame" x="87" y="478" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -193,7 +198,7 @@
                                     <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Temp_Calendar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Ors-gG-Nv9">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Temp_Calendar.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="Ors-gG-Nv9">
                                 <rect key="frame" x="-84" y="399" width="582" height="309"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -368,6 +373,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Temp_Calendar.jpg" width="669" height="510"/>
+        <image name="Temp_Calendar.jpeg" width="860" height="460"/>
     </resources>
 </document>
