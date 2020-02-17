@@ -7,12 +7,21 @@
 //
 
 import UIKit
+import GoogleSignIn
+import Firebase
+import MessageUI
+
+var ref : DatabaseReference = Database.database().reference()
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
+        
        //creates a clear navigation bar
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
