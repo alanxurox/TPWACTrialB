@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 class ViewControllerAvailibleAndSignUp: UIViewController {
 
     override func viewDidLoad() {
@@ -20,6 +20,25 @@ class ViewControllerAvailibleAndSignUp: UIViewController {
         //customizes the back button
         let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backBarButton
+        
+        //method to read activities from database
+        ref.child("Activities").observeSingleEvent(of: .value) { snapshot in
+            print(snapshot.childrenCount) // I got the expected number of items
+            for oneAct in snapshot.children.allObjects as! [DataSnapshot] {
+                print(oneAct.value ?? 00)
+                let activity = Activity()
+                if (oneAct.value != nil){
+                    activity.setMaxStudent(maxStudent: oneAct.childSnapshot(forPath: "maxStudent").value as! Int)
+                    activity.setLeadFaculty(leadFaculty: oneAct.childSnapshot(forPath: "leadFaculty").value as! String)
+                    activity.setName(name: oneAct.childSnapshot(forPath: "name").value as! String)
+                    activity.setLocation(location: oneAct.childSnapshot(forPath: "location").value as! String)
+                    activity.setAltFaculty(altFaculty: oneAct.childSnapshot(forPath: "altFaculty").value as! String)
+                    activity.setHeadStudent(headStudent: oneAct.childSnapshot(forPath: "headStudent").value as! String)
+                    activity.setCurrentStudents(currentStudents: oneAct.childSnapshot(forPath: "currentStudents").value as! [String])
+                }
+                Activity.activityList.append(activity)
+            }
+        }
     }
     
 

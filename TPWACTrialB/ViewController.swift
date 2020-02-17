@@ -26,7 +26,8 @@ class ViewController: UIViewController {
             "location": newActivity.getLocation(),
             "currentStudents": activity.getCurrentStudents(),
             "headStudent": activity.getHeadStudent(),
-            "altFaculty": activity.getAltFaculty()])
+            "altFaculty": activity.getAltFaculty(),
+            "name": activity.getName()])
          
         */
         
