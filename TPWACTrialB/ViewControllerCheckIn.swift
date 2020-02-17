@@ -32,9 +32,16 @@ class ViewControllerCheckIn: UIViewController, MFMailComposeViewControllerDelega
             showMailError()
         }
     }
+    //on click admin function to send emails to administrators
     @IBAction func onClickAdmin(_ sender: Any) {
+        let mailComposeViewController = configureMailController()
+        if MFMailComposeViewController.canSendMail(){
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            showMailError()
+        }
     }
-    //sets the preset data on the email
+    //sets the preset data on the email (for students)
     func configureMailController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
@@ -44,6 +51,17 @@ class ViewControllerCheckIn: UIViewController, MFMailComposeViewControllerDelega
         mailComposerVC.setMessageBody("We are leaving campus in 15 minutes!", isHTML: false)
         
         return mailComposerVC
+    }
+    //sets the preset data on the email for the admins
+    func configureMailControllerAdmin() -> MFMailComposeViewController {
+        let mailComposerVCAdmin = MFMailComposeViewController()
+        mailComposerVCAdmin.mailComposeDelegate = self
+        //data in the email
+        mailComposerVCAdmin.setToRecipients(["dkeel@trinitypawling.org", "snajman@trinitypawling.org"])
+        mailComposerVCAdmin.setSubject("Leaving Campus Reminder")
+        mailComposerVCAdmin.setMessageBody("We are leaving campus in 15 minutes!", isHTML: false)
+        
+        return mailComposerVCAdmin
     }
     //if the email cannot be sent, an error message will pop up
     func showMailError() {
