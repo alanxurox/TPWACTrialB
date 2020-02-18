@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
+import MessageUI
 
 var ref : DatabaseReference = Database.database().reference()
 
@@ -15,6 +17,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
         
         //This works. The method to create a new activity with specific parameters
         //let activity = Activity()
