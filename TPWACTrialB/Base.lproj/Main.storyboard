@@ -193,6 +193,10 @@
                                     <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Temp_Calendar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Ors-gG-Nv9">
+                                <rect key="frame" x="-84" y="399" width="582" height="309"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RSB-XD-3St">
                                 <rect key="frame" x="0.0" y="132" width="414" height="220"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -208,10 +212,6 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="wlz-GG-ues"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="Er7-hi-dqs"/>
                             </scrollView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Temp_Calendar" translatesAutoresizingMaskIntoConstraints="NO" id="Ors-gG-Nv9">
-                                <rect key="frame" x="-84" y="399" width="582" height="309"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -268,7 +268,7 @@
             </objects>
             <point key="canvasLocation" x="2851" y="552"/>
         </scene>
-        <!--Create a new Activities-->
+        <!--View Controller Create Activity-->
         <scene sceneID="PgV-E5-mCa">
             <objects>
                 <viewController id="GeU-JI-6j9" customClass="ViewControllerCreateActivity" customModule="TPWACTrialB" customModuleProvider="target" sceneMemberID="viewController">
@@ -384,7 +384,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pW3-3s-Vct" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1921.7391304347827" y="-590.625"/>
+            <point key="canvasLocation" x="1922" y="-590"/>
         </scene>
         <!--View Controller Students-->
         <scene sceneID="RdR-Bm-1lw">
@@ -470,6 +470,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Temp_Calendar" width="4201" height="3250"/>
+        <image name="Temp_Calendar.jpg" width="4201" height="3250"/>
     </resources>
 </document>
