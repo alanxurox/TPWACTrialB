@@ -35,6 +35,7 @@ class ViewControllerAvailibleAndSignUp: UIViewController {
                     activity.setAltFaculty(altFaculty: oneAct.childSnapshot(forPath: "altFaculty").value as! String)
                     activity.setHeadStudent(headStudent: oneAct.childSnapshot(forPath: "headStudent").value as! String)
                     activity.setCurrentStudents(currentStudents: oneAct.childSnapshot(forPath: "currentStudents").value as! [String])
+                    activity.setDate(dateString: oneAct.childSnapshot(forPath: "date").value as! String)
                 }
                 Activity.activityList.append(activity)
             }

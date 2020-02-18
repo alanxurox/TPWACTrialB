@@ -117,6 +117,20 @@ class Activity{
         self.date = toDate(year: year, month: month, day: day, hour: hour, minute: minute)
     }
     
+    //set date according to a string
+    public func setDate(dateString: String){
+        
+        let dateFormatter = DateFormatter()
+
+        dateFormatter.dateStyle = .full
+        dateFormatter.timeStyle = .full
+        
+        self.date = (dateFormatter.date(from: dateString))!
+        
+    }
+    
+    
+    
     public func getDate() -> Date{
         return date
     }
