@@ -18,15 +18,29 @@ class ViewControllerCreateActivity: UIViewController {
     @IBOutlet weak var date: UIDatePicker!
     
     @IBAction func create(_ sender: UIButton) {
-//        var newActivity : Activity = Activity()
-//               newActivity.setName(name: name.text!)
-//
-//               newActivity.setLocation(location: place.text!)
-//               newActivity.setMaxStudent(maxStudent: Int(maxStudent.text!)!)
-//               newActivity.setLeadFaculty(leadFaculty: headFaculty.text!)
-//               newActivity.setAltFaculty(altFaculty: altFaculty.text!)
-//               newActivity.setDate(date: date.date)
-//               Activity.activityList.append(newActivity)
+        let newActivity : Activity = Activity()
+               newActivity.setName(name: name.text!)
+
+               newActivity.setLocation(location: place.text!)
+               newActivity.setMaxStudent(maxStudent: Int(maxStudent.text!)!)
+               newActivity.setLeadFaculty(leadFaculty: headFaculty.text!)
+               newActivity.setAltFaculty(altFaculty: altFaculty.text!)
+               newActivity.setDate(date: date.date)
+               Activity.activityList.append(newActivity)
+        
+        ref.child("Activities").child(newActivity.getName()).setValue([
+        "date": newActivity.getDateString(),
+        "maxStudent": newActivity.getMaxStudent(),
+        "leadFaculty": newActivity.getLeadFaculty(),
+        "location": newActivity.getLocation(),
+        "currentStudents": newActivity.getCurrentStudents(),
+        "headStudent": newActivity.getHeadStudent(),
+        "altFaculty": newActivity.getAltFaculty(),
+        "name": newActivity.getName()])
+        
+        
+        
+        
 //           }
     }
     
