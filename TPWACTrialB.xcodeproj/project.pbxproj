@@ -50,6 +50,7 @@
 		585CEDBF23FC653700C454CF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		585CEDC123FC657B00C454CF /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		6DFAC36860427BA573877195 /* libPods-TPWACTrialB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TPWACTrialB.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA7367BF23FC2F10005C5289 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		ED32264C23F735CE00A799E7 /* ViewControllerCreateActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCreateActivity.swift; sourceTree = "<group>"; };
 		ED32264E23F7363D00A799E7 /* ViewControllerEditRemove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerEditRemove.swift; sourceTree = "<group>"; };
 		ED32265023F7366E00A799E7 /* ViewControllerCheckIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCheckIn.swift; sourceTree = "<group>"; };
@@ -362,6 +363,7 @@
 				ED32264F23F7363D00A799E7 /* ViewControllerEditRemove.swift in Sources */,
 				ED5796F223F4AD2B00C4301D /* AppDelegate.swift in Sources */,
 				ED5796F423F4AD2B00C4301D /* SceneDelegate.swift in Sources */,
+				AA7367C023FC2F10005C5289 /* Activity.swift in Sources */,
 				ED78DC1B23F6EDD300F6B648 /* ViewControllerHome.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -542,7 +544,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.trinitypawling.TPWACTrialB;
+				PRODUCT_BUNDLE_IDENTIFIER = com.trinitypawling.TPWAC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -560,7 +562,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.trinitypawling.TPWACTrialB;
+				PRODUCT_BUNDLE_IDENTIFIER = com.trinitypawling.TPWAC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
