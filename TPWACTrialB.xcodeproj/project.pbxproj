@@ -11,7 +11,7 @@
 		583C86AD23FAEA93002C4C0B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 583C86AC23FAEA93002C4C0B /* Podfile */; };
 		583C86AF23FAEB8C002C4C0B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 583C86AE23FAEB8C002C4C0B /* GoogleService-Info.plist */; };
 		583C86B423FAEEC0002C4C0B /* Temp_Calendar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 583C86B323FAEEC0002C4C0B /* Temp_Calendar.jpg */; };
-		583C86B623FAF0A7002C4C0B /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583C86B523FAF0A7002C4C0B /* Activity.swift */; };
+		AA7367C023FC2F10005C5289 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7367BF23FC2F10005C5289 /* Activity.swift */; };
 		ED32264D23F735CE00A799E7 /* ViewControllerCreateActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32264C23F735CE00A799E7 /* ViewControllerCreateActivity.swift */; };
 		ED32264F23F7363D00A799E7 /* ViewControllerEditRemove.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32264E23F7363D00A799E7 /* ViewControllerEditRemove.swift */; };
 		ED32265123F7366E00A799E7 /* ViewControllerCheckIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32265023F7366E00A799E7 /* ViewControllerCheckIn.swift */; };
@@ -50,8 +50,8 @@
 		583C86AC23FAEA93002C4C0B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		583C86AE23FAEB8C002C4C0B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		583C86B323FAEEC0002C4C0B /* Temp_Calendar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Temp_Calendar.jpg; path = ../../../Downloads/Temp_Calendar.jpg; sourceTree = "<group>"; };
-		583C86B523FAF0A7002C4C0B /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Activity.swift; path = ../../TPWAC22/TPWAC/Activity.swift; sourceTree = "<group>"; };
 		6DFAC36860427BA573877195 /* libPods-TPWACTrialB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TPWACTrialB.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA7367BF23FC2F10005C5289 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		ED32264C23F735CE00A799E7 /* ViewControllerCreateActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCreateActivity.swift; sourceTree = "<group>"; };
 		ED32264E23F7363D00A799E7 /* ViewControllerEditRemove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerEditRemove.swift; sourceTree = "<group>"; };
 		ED32265023F7366E00A799E7 /* ViewControllerCheckIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCheckIn.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 		ED5796F023F4AD2B00C4301D /* TPWACTrialB */ = {
 			isa = PBXGroup;
 			children = (
-				583C86B523FAF0A7002C4C0B /* Activity.swift */,
+				AA7367BF23FC2F10005C5289 /* Activity.swift */,
 				583C86B323FAEEC0002C4C0B /* Temp_Calendar.jpg */,
 				583C86AE23FAEB8C002C4C0B /* GoogleService-Info.plist */,
 				ED5796F123F4AD2B00C4301D /* AppDelegate.swift */,
@@ -357,7 +357,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				583C86B623FAF0A7002C4C0B /* Activity.swift in Sources */,
 				ED32264D23F735CE00A799E7 /* ViewControllerCreateActivity.swift in Sources */,
 				EDBC092923F71BFA007DD85A /* ViewControllerStudents.swift in Sources */,
 				ED5796F623F4AD2B00C4301D /* ViewController.swift in Sources */,
@@ -366,6 +365,7 @@
 				ED32264F23F7363D00A799E7 /* ViewControllerEditRemove.swift in Sources */,
 				ED5796F223F4AD2B00C4301D /* AppDelegate.swift in Sources */,
 				ED5796F423F4AD2B00C4301D /* SceneDelegate.swift in Sources */,
+				AA7367C023FC2F10005C5289 /* Activity.swift in Sources */,
 				ED78DC1B23F6EDD300F6B648 /* ViewControllerHome.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -546,7 +546,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.trinitypawling.TPWACTrialB;
+				PRODUCT_BUNDLE_IDENTIFIER = com.trinitypawling.TPWAC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -564,7 +564,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.trinitypawling.TPWACTrialB;
+				PRODUCT_BUNDLE_IDENTIFIER = com.trinitypawling.TPWAC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
