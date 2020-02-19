@@ -16,17 +16,23 @@ class ViewControllerCreateActivity: UIViewController {
     @IBOutlet weak var headFaculty: UITextField!
     @IBOutlet weak var altFaculty: UITextField!
     @IBOutlet weak var date: UIDatePicker!
+    @IBOutlet weak var dueSwitch: UISwitch!
+    @IBOutlet weak var dueDate: UIDatePicker!
+    
+    
     
     @IBAction func create(_ sender: UIButton) {
         let newActivity : Activity = Activity()
-               newActivity.setName(name: name.text!)
-
-               newActivity.setLocation(location: place.text!)
-               newActivity.setMaxStudent(maxStudent: Int(maxStudent.text!)!)
-               newActivity.setLeadFaculty(leadFaculty: headFaculty.text!)
-               newActivity.setAltFaculty(altFaculty: altFaculty.text!)
-               newActivity.setDate(date: date.date)
-               Activity.activityList.append(newActivity)
+        
+        newActivity.setName(name: name.text!)
+        newActivity.setLocation(location: place.text!)
+        newActivity.setMaxStudent(maxStudent: Int(maxStudent.text!)!)
+        newActivity.setLeadFaculty(leadFaculty: headFaculty.text!)
+        newActivity.setAltFaculty(altFaculty: altFaculty.text!)
+        newActivity.setDate(date: date.date)
+        newActivity.setDue(date: dueDate.date)
+        
+        Activity.activityList.append(newActivity)
         
         ref.child("Activities").child(newActivity.getName()).setValue([
         "date": newActivity.getDateString(),
@@ -36,7 +42,8 @@ class ViewControllerCreateActivity: UIViewController {
         "currentStudents": newActivity.getCurrentStudents(),
         "headStudent": newActivity.getHeadStudent(),
         "altFaculty": newActivity.getAltFaculty(),
-        "name": newActivity.getName()])
+        "name": newActivity.getName(),
+        "due": newActivity.getDue()])
         
         
         
