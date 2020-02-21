@@ -268,7 +268,7 @@
             </objects>
             <point key="canvasLocation" x="2851" y="552"/>
         </scene>
-        <!--View Controller Create Activity-->
+        <!--Create a new Activities-->
         <scene sceneID="PgV-E5-mCa">
             <objects>
                 <viewController id="GeU-JI-6j9" customClass="ViewControllerCreateActivity" customModule="TPWACTrialB" customModuleProvider="target" sceneMemberID="viewController">
@@ -380,6 +380,11 @@
                         <outlet property="maxStudent" destination="byP-zm-J8R" id="9D8-yn-mf1"/>
                         <outlet property="name" destination="vSG-Fn-NyP" id="dnE-0Z-Pph"/>
                         <outlet property="place" destination="Ke3-dU-011" id="COE-Dd-FT8"/>
+                        <outletCollection property="textFields" destination="vSG-Fn-NyP" collectionClass="NSMutableArray" id="WSb-3u-L6h"/>
+                        <outletCollection property="textFields" destination="Ke3-dU-011" collectionClass="NSMutableArray" id="O1E-78-0If"/>
+                        <outletCollection property="textFields" destination="byP-zm-J8R" collectionClass="NSMutableArray" id="PUc-tm-I8a"/>
+                        <outletCollection property="textFields" destination="fqR-UN-PoI" collectionClass="NSMutableArray" id="92H-CN-E76"/>
+                        <outletCollection property="textFields" destination="YbP-Ij-PdM" collectionClass="NSMutableArray" id="kDp-AC-xRb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pW3-3s-Vct" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
