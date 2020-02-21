@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1285BD894CE91A9DC0C18F24 /* libPods-TPWACTrialB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DFAC36860427BA573877195 /* libPods-TPWACTrialB.a */; };
-		2D38859823FC719300F09017 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D38859723FC719300F09017 /* User.swift */; };
 		2D38859A23FC735000F09017 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D38859923FC735000F09017 /* credentials.plist */; };
+		2D505D1324004DD400161E38 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D505D1224004DD400161E38 /* User.swift */; };
 		583C86AD23FAEA93002C4C0B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 583C86AC23FAEA93002C4C0B /* Podfile */; };
 		585CEDC023FC653700C454CF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 585CEDBF23FC653700C454CF /* GoogleService-Info.plist */; };
 		585CEDC223FC657B00C454CF /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585CEDC123FC657B00C454CF /* Activity.swift */; };
@@ -47,8 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2D38859723FC719300F09017 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../../TPWAC/TPWAC/User.swift; sourceTree = "<group>"; };
 		2D38859923FC735000F09017 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
+		2D505D1224004DD400161E38 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		53E1852C011440D05DE2A8D6 /* Pods-TPWACTrialB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPWACTrialB.release.xcconfig"; path = "Pods/Target Support Files/Pods-TPWACTrialB/Pods-TPWACTrialB.release.xcconfig"; sourceTree = "<group>"; };
 		583C86AC23FAEA93002C4C0B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		585CEDBF23FC653700C454CF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 		ED5796F023F4AD2B00C4301D /* TPWACTrialB */ = {
 			isa = PBXGroup;
 			children = (
-				2D38859723FC719300F09017 /* User.swift */,
+				2D505D1224004DD400161E38 /* User.swift */,
 				585CEDC123FC657B00C454CF /* Activity.swift */,
 				585CEDBF23FC653700C454CF /* GoogleService-Info.plist */,
 				2D38859923FC735000F09017 /* credentials.plist */,
@@ -368,9 +368,9 @@
 				EDBC092723F71BAF007DD85A /* ViewControllerAvailibleAndSignUp.swift in Sources */,
 				ED32264F23F7363D00A799E7 /* ViewControllerEditRemove.swift in Sources */,
 				ED5796F223F4AD2B00C4301D /* AppDelegate.swift in Sources */,
+				2D505D1324004DD400161E38 /* User.swift in Sources */,
 				ED5796F423F4AD2B00C4301D /* SceneDelegate.swift in Sources */,
 				ED78DC1B23F6EDD300F6B648 /* ViewControllerHome.swift in Sources */,
-				2D38859823FC719300F09017 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
