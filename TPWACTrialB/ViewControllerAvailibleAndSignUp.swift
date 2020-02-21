@@ -21,6 +21,10 @@ class ViewControllerAvailibleAndSignUp: UIViewController {
         let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backBarButton
         
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
         //method to read activities from database
         ref.child("Activities").observeSingleEvent(of: .value) { snapshot in
             print(snapshot.childrenCount) // I got the expected number of items
@@ -41,6 +45,21 @@ class ViewControllerAvailibleAndSignUp: UIViewController {
             }
         }
     }
+    
+    //the method that will link to the button which sign students up for activities
+    /*@IBAction func onRegister(){
+        
+        
+        
+        
+        
+        
+        
+    }*/
+    
+    
+    
+    
     
 
     /*
