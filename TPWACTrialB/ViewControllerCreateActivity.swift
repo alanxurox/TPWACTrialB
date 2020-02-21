@@ -21,9 +21,10 @@ class ViewControllerCreateActivity: UIViewController, UITextFieldDelegate{
     
     
     
+    
     @IBAction func create(_ sender: UIButton) {
-        if (!(isEmpty(temp: name) && isEmpty(temp: place) && isEmpty(temp: maxStudent) && isEmpty(temp: headFaculty) && isEmpty(temp: altFaculty))){
-            
+        modify()
+        if !(isNotEmpty(temp: name) && isNotEmpty(temp: place) && isNotEmpty(temp: maxStudent) && isNotEmpty(temp: headFaculty) && isNotEmpty(temp: altFaculty)){
             let newActivity : Activity = Activity()
             newActivity.setName(name: name.text!)
             newActivity.setLocation(location: place.text!)
@@ -54,12 +55,26 @@ class ViewControllerCreateActivity: UIViewController, UITextFieldDelegate{
         return allowedCharacters.isSuperset(of: characterSet)
     }
     
-    public func isEmpty(temp :UITextField) -> Bool{
+    func isNotEmpty(temp :UITextField) -> Bool{
         let text = temp.text
-        return text!.isEmpty
+        return !text!.isEmpty
     }
     
-
+    func specialSymbol(temp :UITextField) -> String{
+        var text = temp.text
+        text = text?.replacingOccurrences(of: ".", with: "")
+        text = text?.replacingOccurrences(of: "#", with: "#")
+        text = text?.replacingOccurrences(of: "$", with: "")
+        text = text?.replacingOccurrences(of: "[", with: "")
+        text = text?.replacingOccurrences(of: "]", with: "")
+        return text!
+    }
+    func modify(){
+        name.text = specialSymbol(temp: name)
+        place.text = specialSymbol(temp: place)
+        headFaculty.text = specialSymbol(temp: headFaculty)
+        altFaculty.text = specialSymbol(temp: altFaculty)
+    }
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -72,6 +87,7 @@ class ViewControllerCreateActivity: UIViewController, UITextFieldDelegate{
         let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backBarButton
     }
+    
         
 
     /*
