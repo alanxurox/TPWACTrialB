@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewControllerCreateActivity: UIViewController {
+class ViewControllerCreateActivity: UIViewController, UITextFieldDelegate{
 
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var place: UITextField!
@@ -22,39 +22,48 @@ class ViewControllerCreateActivity: UIViewController {
     
     
     @IBAction func create(_ sender: UIButton) {
-        let newActivity : Activity = Activity()
+        if (!(isEmpty(temp: name) && isEmpty(temp: place) && isEmpty(temp: maxStudent) && isEmpty(temp: headFaculty) && isEmpty(temp: altFaculty))){
+            
+            let newActivity : Activity = Activity()
+            newActivity.setName(name: name.text!)
+            newActivity.setLocation(location: place.text!)
+            newActivity.setMaxStudent(maxStudent: Int(maxStudent.text!)!)
+            newActivity.setLeadFaculty(leadFaculty: headFaculty.text!)
+            newActivity.setAltFaculty(altFaculty: altFaculty.text!)
+            newActivity.setDate(date: date.date)
+            newActivity.setDue(date: dueDate.date)
         
-        newActivity.setName(name: name.text!)
-        newActivity.setLocation(location: place.text!)
-        newActivity.setMaxStudent(maxStudent: Int(maxStudent.text!)!)
-        newActivity.setLeadFaculty(leadFaculty: headFaculty.text!)
-        newActivity.setAltFaculty(altFaculty: altFaculty.text!)
-        newActivity.setDate(date: date.date)
-        newActivity.setDue(date: dueDate.date)
+            Activity.activityList.append(newActivity)
         
-        Activity.activityList.append(newActivity)
-        
-        ref.child("Activities").child(newActivity.getName()).setValue([
-        "date": newActivity.getDateString(),
-        "maxStudent": newActivity.getMaxStudent(),
-        "leadFaculty": newActivity.getLeadFaculty(),
-        "location": newActivity.getLocation(),
-        "currentStudents": newActivity.getCurrentStudents(),
-        "headStudent": newActivity.getHeadStudent(),
-        "altFaculty": newActivity.getAltFaculty(),
-        "name": newActivity.getName(),
-        "due": newActivity.getDue()])
-        
-        
-        
-        
-//           }
+            ref.child("Activities").child(newActivity.getName()).setValue([
+            "date": newActivity.getDateString(),
+            "maxStudent": newActivity.getMaxStudent(),
+            "leadFaculty": newActivity.getLeadFaculty(),
+            "location": newActivity.getLocation(),
+            "currentStudents": newActivity.getCurrentStudents(),
+            "headStudent": newActivity.getHeadStudent(),
+            "altFaculty": newActivity.getAltFaculty(),
+            "name": newActivity.getName(),
+            "due": newActivity.getDue()])
+        }
+    }
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool{
+        let allowedCharacters = CharacterSet.decimalDigits
+        let characterSet = CharacterSet(charactersIn: string)
+        return allowedCharacters.isSuperset(of: characterSet)
+    }
+    
+    public func isEmpty(temp :UITextField) -> Bool{
+        let text = temp.text
+        return text!.isEmpty
     }
     
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-
+        self.maxStudent.delegate = self;
         // Do any additional setup after loading the view.
         //creates a clear navigation bar
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
