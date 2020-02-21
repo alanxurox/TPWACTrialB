@@ -58,9 +58,33 @@ class ViewController: UIViewController {
         //customizes the back button
         let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backBarButton
+        
+        if (currentUser.getStatus() == "Active"){
+            performSegue(withIdentifier: "toMainScreen", sender: nil)
+        }
     }
 
     @IBAction func ContinuewithGoogle(_ sender: UIButton) {
+        var group : String
+        
+        if (currentUser.isFaculty){
+            group = "Faculties"
+        }else{
+            group = "Students"
+        }
+        ref.child(group).child(currentUser.getUserID()).setValue([
+            "email": currentUser.getEmail(),
+            "User ID": currentUser.getUserID(),
+            "ID Token": currentUser.getIDToken(),
+            "Full Name": currentUser.getFullName(),
+            "Given Name": currentUser.getGivenName(),
+            "Family Name": currentUser.getFamilyName(),
+            "Status": currentUser.getStatus()])
+        if (currentUser.getStatus() == "Active"){
+            performSegue(withIdentifier: "toMainScreen", sender: nil)
+        }else{
+            //condition.text = "Please log in first"
+        }
     }
     
 }

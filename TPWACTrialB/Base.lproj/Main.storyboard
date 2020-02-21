@@ -29,7 +29,6 @@
                                 </state>
                                 <connections>
                                     <action selector="ContinuewithGoogle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iG5-fZ-Hiz"/>
-                                    <segue destination="ynk-iw-BF9" kind="show" id="BFR-BX-Agx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Manage you activities, check notifications, see other people's activities, and more." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4X-kg-eIl">
@@ -54,6 +53,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="hhM-Ph-Cmw"/>
+                    <connections>
+                        <segue destination="ynk-iw-BF9" kind="show" identifier="toMainScreen" id="LL8-9l-blL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -198,10 +200,6 @@
                                     <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="google.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ors-gG-Nv9">
-                                <rect key="frame" x="-84" y="399" width="582" height="309"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RSB-XD-3St">
                                 <rect key="frame" x="0.0" y="132" width="414" height="220"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -217,6 +215,19 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="wlz-GG-ues"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="Er7-hi-dqs"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PvL-5V-L8E">
+                                <rect key="frame" x="181" y="399" width="52" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log out"/>
+                                <connections>
+                                    <action selector="logout:" destination="ynk-iw-BF9" eventType="touchUpInside" id="AUK-UO-r2j"/>
+                                    <segue destination="2ae-Xc-Eru" kind="presentation" modalPresentationStyle="fullScreen" id="fJb-cs-yfD"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="google.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ors-gG-Nv9">
+                                <rect key="frame" x="-84" y="480" width="582" height="309"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -239,7 +250,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bGG-ea-Ktc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1921.7391304347827" y="138.61607142857142"/>
+            <point key="canvasLocation" x="1922" y="139"/>
         </scene>
         <!--View Controller Edit Remove-->
         <scene sceneID="qOB-M9-WdZ">
