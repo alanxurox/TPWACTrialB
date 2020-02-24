@@ -22,6 +22,21 @@ class ViewControllerCreateActivity: UIViewController {
     
     @IBAction func create(_ sender: UIButton) {
         let newActivity : Activity = Activity()
+        
+        
+        for textField in textFields{
+            
+            if (textField.text! == "" || textField.text!.contains(".") || textField.text!.contains("#") || textField.text!.contains("$") || textField.text!.contains("[") || textField.text!.contains("]")){
+                
+                let sendMailErrorAlert = UIAlertController(title: "Error", message: "Input cannot be empty and cannot contain \".\" \"#\" \"$\" \"[\" or \"]\"", preferredStyle: .alert)
+                let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
+                sendMailErrorAlert.addAction(dismiss)
+                self.present(sendMailErrorAlert, animated: true, completion: nil)
+                
+                return
+            }
+            
+        }
                newActivity.setName(name: name.text!)
 
                newActivity.setLocation(location: place.text!)
