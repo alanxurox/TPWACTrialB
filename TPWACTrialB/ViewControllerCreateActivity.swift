@@ -17,12 +17,17 @@ class ViewControllerCreateActivity: UIViewController {
     @IBOutlet weak var altFaculty: UITextField!
     @IBOutlet weak var date: UIDatePicker!
     
+    @IBOutlet var textFields: [UITextField]!
+    
+    
     @IBAction func create(_ sender: UIButton) {
         let newActivity : Activity = Activity()
                newActivity.setName(name: name.text!)
 
                newActivity.setLocation(location: place.text!)
+        if (Int(maxStudent.text!) != nil){
                newActivity.setMaxStudent(maxStudent: Int(maxStudent.text!)!)
+        }
                newActivity.setLeadFaculty(leadFaculty: headFaculty.text!)
                newActivity.setAltFaculty(altFaculty: altFaculty.text!)
                newActivity.setDate(date: date.date)
@@ -38,7 +43,11 @@ class ViewControllerCreateActivity: UIViewController {
         "altFaculty": newActivity.getAltFaculty(),
         "name": newActivity.getName()])
         
-        
+        for textField in textFields{
+            
+            textField.text = ""
+            
+        }
         
         
 //           }
