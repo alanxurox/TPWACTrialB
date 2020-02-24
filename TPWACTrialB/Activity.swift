@@ -46,6 +46,26 @@ class Activity{
         self.altFaculty = altFaculty
     }
     
+    public static func myActivity(userEmail : String) -> [Activity]{
+        var returnActivities : [Activity] = []
+        for activity in activityList{
+            if activity.getCurrentStudents().contains(userEmail){
+                returnActivities.append(activity)
+            }
+        }
+        return returnActivities
+    }
+    
+    public static func facultyActivity(userEmail : String) -> [Activity]{
+        var returnActivities : [Activity] = []
+        for activity in activityList{
+            if (activity.getLeadFaculty() == userEmail || activity.getAltFaculty() == userEmail){
+                returnActivities.append(activity)
+            }
+        }
+        return returnActivities
+    }
+    
     public func toDate(year: Int, month: Int, day: Int, hour: Int, minute: Int) -> Date{
         let calendar = Calendar.current
 
@@ -58,6 +78,15 @@ class Activity{
         components.minute = minute
         
         return calendar.date(from: components)!
+    }
+    
+    public func getDateSimplified() -> String{
+        let dateFormatter = DateFormatter()
+
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+
+        return dateFormatter.string(from: date)
     }
     
     public func getDateString() -> String{

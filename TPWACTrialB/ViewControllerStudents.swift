@@ -20,9 +20,19 @@ class ViewControllerStudents: UIViewController {
         //customizes the back button
         let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backBarButton
+        
+        var activities : [Activity] = []
+        activities = Activity.facultyActivity(userEmail: currentUser.email)
+        
+        titleText.text = activities[0].getName()
+        for student in activities[0].getCurrentStudents(){
+            self.students.text = self.students.text! + student + "\n"
+        }
     }
     
-
+    @IBOutlet weak var titleText: UILabel!
+    @IBOutlet weak var students: UILabel!
+    
     /*
     // MARK: - Navigation
 
