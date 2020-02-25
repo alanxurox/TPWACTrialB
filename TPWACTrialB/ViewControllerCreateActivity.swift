@@ -42,14 +42,29 @@ class ViewControllerCreateActivity: UIViewController{
                     return
                 }
                 
+                
             }
+        if (Int(maxStudent.text!) == nil){
+            
+            let sendMailErrorAlert = UIAlertController(title: "Error", message: "Max Student must be an integer", preferredStyle: .alert)
+            let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
+            sendMailErrorAlert.addAction(dismiss)
+            self.present(sendMailErrorAlert, animated: true, completion: nil)
+            
+            
+            return
+            
+        }
                    newActivity.setName(name: name.text!)
 
 
                    newActivity.setLocation(location: place.text!)
-            if (Int(maxStudent.text!) != nil){
+            
+                
+                
+                
+                
                    newActivity.setMaxStudent(maxStudent: Int(maxStudent.text!)!)
-            }
                    newActivity.setLeadFaculty(leadFaculty: headFaculty.text!)
                    newActivity.setAltFaculty(altFaculty: altFaculty.text!)
                    newActivity.setDate(date: date.date)
