@@ -23,6 +23,7 @@ class ViewControllerCreateActivity: UIViewController{
     
     
     @IBAction func create(_ sender: UIButton) {
+
             let newActivity : Activity = Activity()
             
             
@@ -40,6 +41,7 @@ class ViewControllerCreateActivity: UIViewController{
                 
             }
                    newActivity.setName(name: name.text!)
+
 
                    newActivity.setLocation(location: place.text!)
             if (Int(maxStudent.text!) != nil){
