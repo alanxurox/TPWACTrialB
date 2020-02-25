@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewControllerCreateActivity: UIViewController, UITextFieldDelegate{
+class ViewControllerCreateActivity: UIViewController{
 
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var place: UITextField!
@@ -19,23 +19,40 @@ class ViewControllerCreateActivity: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var dueSwitch: UISwitch!
     @IBOutlet weak var dueDate: UIDatePicker!
     
-    
+    @IBOutlet var textFields: [UITextField]!
     
     
     @IBAction func create(_ sender: UIButton) {
-        modify()
-        if !(isNotEmpty(temp: name) && isNotEmpty(temp: place) && isNotEmpty(temp: maxStudent) && isNotEmpty(temp: headFaculty) && isNotEmpty(temp: altFaculty)){
             let newActivity : Activity = Activity()
-            newActivity.setName(name: name.text!)
-            newActivity.setLocation(location: place.text!)
-            newActivity.setMaxStudent(maxStudent: Int(maxStudent.text!)!)
-            newActivity.setLeadFaculty(leadFaculty: headFaculty.text!)
-            newActivity.setAltFaculty(altFaculty: altFaculty.text!)
-            newActivity.setDate(date: date.date)
-            newActivity.setDue(date: dueDate.date)
+            
+            
+            for textField in textFields{
+                
+                if (textField.text! == "" || textField.text!.contains(".") || textField.text!.contains("#") || textField.text!.contains("$") || textField.text!.contains("[") || textField.text!.contains("]")){
+                    
+                    let sendMailErrorAlert = UIAlertController(title: "Error", message: "Input cannot be empty and cannot contain \".\" \"#\" \"$\" \"[\" or \"]\"", preferredStyle: .alert)
+                    let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    sendMailErrorAlert.addAction(dismiss)
+                    self.present(sendMailErrorAlert, animated: true, completion: nil)
+                    
+                    return
+                }
+                
+            }
+                   newActivity.setName(name: name.text!)
+
+                   newActivity.setLocation(location: place.text!)
+            if (Int(maxStudent.text!) != nil){
+                   newActivity.setMaxStudent(maxStudent: Int(maxStudent.text!)!)
+            }
+                   newActivity.setLeadFaculty(leadFaculty: headFaculty.text!)
+                   newActivity.setAltFaculty(altFaculty: altFaculty.text!)
+                   newActivity.setDate(date: date.date)
         
-            Activity.activityList.append(newActivity)
+                //yt:newActivity.setDue(date: dueDate.date) Waiting for TW's firebase
         
+                   Activity.activityList.append(newActivity)
+            
             ref.child("Activities").child(newActivity.getName()).setValue([
             "date": newActivity.getDateString(),
             "maxStudent": newActivity.getMaxStudent(),
@@ -44,10 +61,19 @@ class ViewControllerCreateActivity: UIViewController, UITextFieldDelegate{
             "currentStudents": newActivity.getCurrentStudents(),
             "headStudent": newActivity.getHeadStudent(),
             "altFaculty": newActivity.getAltFaculty(),
-            "name": newActivity.getName(),
-            "due": newActivity.getDue()])
+            "name": newActivity.getName()])
+        
+            //yt: "due": newActivity.getDue() (Should be .getDateString()?) waiting for TW's firebase
+            
+            for textField in textFields{
+                
+                textField.text = ""
+                
+            }
+            
+            
+    //           }
         }
-    }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool{
         let allowedCharacters = CharacterSet.decimalDigits
@@ -78,7 +104,7 @@ class ViewControllerCreateActivity: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        self.maxStudent.delegate = self;
+
         // Do any additional setup after loading the view.
         //creates a clear navigation bar
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)

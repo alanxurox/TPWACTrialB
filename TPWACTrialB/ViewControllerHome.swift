@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class ViewControllerHome: UIViewController {
     //selection UICollection that holds all of the buttons in the menu
@@ -34,6 +35,11 @@ class ViewControllerHome: UIViewController {
         UIView.animate(withDuration: 0.3) {
             self.ImageViewCalendar.isHidden = !self.ImageViewCalendar.isHidden
         }
+    }
+    
+    @IBAction func logout(_ sender: UIButton) {
+        GIDSignIn.sharedInstance().signOut()
+        GIDSignIn.sharedInstance()?.disconnect()
     }
     
     /*
