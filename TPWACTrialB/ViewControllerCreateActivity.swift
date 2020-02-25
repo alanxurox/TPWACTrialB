@@ -23,6 +23,7 @@ class ViewControllerCreateActivity: UIViewController{
     
     
     @IBAction func create(_ sender: UIButton) {
+
             let newActivity : Activity = Activity()
             
             
@@ -52,6 +53,7 @@ class ViewControllerCreateActivity: UIViewController{
             
         }
                    newActivity.setName(name: name.text!)
+
 
                    newActivity.setLocation(location: place.text!)
             
