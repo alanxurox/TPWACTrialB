@@ -10,6 +10,9 @@ import UIKit
 
 class ViewControllerStudents: UIViewController {
 
+    var index : Int = 0
+    var activities : [Activity] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,17 +24,39 @@ class ViewControllerStudents: UIViewController {
         let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backBarButton
         
-        var activities : [Activity] = []
-        activities = Activity.facultyActivity(userEmail: currentUser.email)
-        
-        titleText.text = activities[0].getName()
-        for student in activities[0].getCurrentStudents(){
-            self.students.text = self.students.text! + student + "\n"
+        activities = Activity.facultyActivity(userName: currentUser.fullName)
+        students.text = ""
+        if (activities.isEmpty){
+            titleText.text = ""
+            date.text = ""
+            dueDate.text = ""
+            students.text = "No activity"
+        }else{
+            titleText.text = activities[index].getName()
+            date.text = "Date: " + activities[index].getDateSimplified()
+            dueDate.text = "Due date: " + activities[index].getDueSimplified()
+            for student in activities[index].getCurrentStudents(){
+                self.students.text = self.students.text! + student + "\n"
+            }
         }
     }
     
     @IBOutlet weak var titleText: UILabel!
     @IBOutlet weak var students: UILabel!
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var dueDate: UILabel!
+    
+    @IBAction func nextActivity(_ sender: UIButton) {
+        if (!activities.isEmpty){
+            index = (index + 1) % activities.count
+            titleText.text = activities[index].getName()
+            date.text = "Date: " + activities[index].getDateSimplified()
+            dueDate.text = "Due date: " + activities[index].getDueSimplified()
+            for student in activities[index].getCurrentStudents(){
+                self.students.text = self.students.text! + student + "\n"
+            }
+        }
+    }
     
     /*
     // MARK: - Navigation

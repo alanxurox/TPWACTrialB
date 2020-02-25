@@ -56,10 +56,10 @@ class Activity{
         return returnActivities
     }
     
-    public static func facultyActivity(userEmail : String) -> [Activity]{
+    public static func facultyActivity(userName : String) -> [Activity]{
         var returnActivities : [Activity] = []
         for activity in activityList{
-            if (activity.getLeadFaculty() == userEmail || activity.getAltFaculty() == userEmail){
+            if (activity.getLeadFaculty() == userName || activity.getAltFaculty() == userName){
                 returnActivities.append(activity)
             }
         }
@@ -96,6 +96,15 @@ class Activity{
         dateFormatter.timeStyle = .full
 
         return dateFormatter.string(from: date)
+    }
+    
+    public func getDueSimplified() -> String{
+        let dateFormatter = DateFormatter()
+
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+
+        return dateFormatter.string(from: due)
     }
     
     public func isActivityAvailable() -> Bool{
