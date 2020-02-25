@@ -25,7 +25,7 @@
                                 <rect key="frame" x="133" y="433" width="148" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Continue with Google">
-                                    <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" col-pace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="ContinuewithGoogle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iG5-fZ-Hiz"/>
@@ -200,10 +200,7 @@
                                     <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Temp_Calendar" translatesAutoresizingMaskIntoConstraints="NO" id="Ors-gG-Nv9">
-                                <rect key="frame" x="-84" y="399" width="582" height="309"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                           
                       <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RSB-XD-3St">
                                 <rect key="frame" x="0.0" y="132" width="414" height="220"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -228,10 +225,7 @@
                                     <segue destination="2ae-Xc-Eru" kind="presentation" modalPresentationStyle="fullScreen" id="fJb-cs-yfD"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="google.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ors-gG-Nv9">
-                                <rect key="frame" x="-84" y="480" width="582" height="309"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -243,7 +237,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="lJO-is-CdC"/>
                     <connections>
-                        <outlet property="ImageViewCalendar" destination="Ors-gG-Nv9" id="ejq-8g-XaO"/>
+                        
                         <outletCollection property="Selection" destination="xLD-wM-TYX" collectionClass="NSMutableArray" id="5nQ-JH-jdB"/>
                         <outletCollection property="Selection" destination="UdT-vC-jvW" collectionClass="NSMutableArray" id="Kd6-sT-Iod"/>
                         <outletCollection property="Selection" destination="aYG-YW-8rs" collectionClass="NSMutableArray" id="mmv-Ql-flx"/>
