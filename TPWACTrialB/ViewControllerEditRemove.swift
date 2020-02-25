@@ -12,7 +12,20 @@ class ViewControllerEditRemove: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //remove value method
+        /*
+         
+         ref.child("Activities").child(Activity.getName).removeValue { (error, ref) in
+             if error != nil {
+                 print("error \(error)")
+             }
+         }
+         
+         
+         
+         */
+        
         // Do any additional setup after loading the view.
         //creates a clear navigation bar
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)

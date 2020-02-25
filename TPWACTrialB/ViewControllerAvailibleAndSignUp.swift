@@ -28,6 +28,7 @@ class ViewControllerAvailibleAndSignUp: UIViewController {
         //method to read activities from database
         ref.child("Activities").observeSingleEvent(of: .value) { snapshot in
             print(snapshot.childrenCount) // I got the expected number of items
+            Activity.activityList = []
             for oneAct in snapshot.children.allObjects as! [DataSnapshot] {
                 print(oneAct.value ?? 00)
                 let activity = Activity()
