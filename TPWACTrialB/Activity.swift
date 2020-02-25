@@ -98,6 +98,16 @@ class Activity{
         return dateFormatter.string(from: date)
     }
     
+    //get the due date info and return as a string
+    public func getDueString() -> String{
+        let dateFormatter = DateFormatter()
+
+        dateFormatter.dateStyle = .full
+        dateFormatter.timeStyle = .full
+
+        return dateFormatter.string(from: due)
+    }
+    
     public func getDueSimplified() -> String{
         let dateFormatter = DateFormatter()
 
@@ -106,6 +116,7 @@ class Activity{
 
         return dateFormatter.string(from: due)
     }
+    
     
     public func isActivityAvailable() -> Bool{
         return (maxStudent > currentStudents.count)
@@ -172,15 +183,19 @@ class Activity{
     public func getDate() -> Date{
         return date
     }
-    public func setDue(dateString: String){
+    
+    //the function that sets due date according to a String
+    //Sky, If you are writing codes that others will need to use, please include comments
+    public func setDue(dueString: String){
         let dateFormatter = DateFormatter()
 
         dateFormatter.dateStyle = .full
         dateFormatter.timeStyle = .full
-        self.date = (dateFormatter.date(from: dateString))!
+        self.due = (dateFormatter.date(from: dueString))!
     }
+    
     public func setDue(date: Date){
-        self.date = date
+        self.due = date
     }
     
     public func setDue(year: Int, month: Int, day: Int, hour: Int, minute: Int){
