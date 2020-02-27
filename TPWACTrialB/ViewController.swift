@@ -21,6 +21,31 @@ class ViewController: UIViewController {
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance()?.restorePreviousSignIn()
         
+        
+        //method to use email to determine user, not finished
+        let email = "tliu@trinitypawling.org"
+        
+        ref.child("Faculties").observeSingleEvent(of: .value) { snapshot in
+           print(snapshot.childrenCount) // I got the expected number of items
+           for oneAct in snapshot.children.allObjects as! [DataSnapshot] {
+               print(oneAct.value ?? 00)
+            let nmail = oneAct.childSnapshot(forPath: "email").value as! String
+            //if email.
+                   
+               
+        }
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         //This works. The method to create a new activity with specific parameters
         //let activity = Activity()
         //activity.setMaxStudent(maxStudent: 13)

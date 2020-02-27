@@ -21,6 +21,16 @@ class ViewControllerAvailibleAndSignUp: UIViewController {
         let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backBarButton
         
+        
+        //Sign up method this works, change [1] to any number of activity that is selected
+        
+        /*
+        let activity = Activity.activityList[1]
+        ref.child("Activities").child(activity.getName()).child("currentStudents").child(String(activity.currentStudents.count)).setValue(currentUser.getEmail())
+        */
+        
+        
+        
     }
     
     
