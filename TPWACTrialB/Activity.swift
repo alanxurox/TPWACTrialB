@@ -29,7 +29,7 @@ class Activity{
         location = "Your home"
         maxStudent = 5
         leadFaculty = "vmetcalf@trinitypawling.org"
-        currentStudents = ["tliu@trinitypawling.org"]
+        currentStudents = ["jwang@trinitypawling.org", "tliu@trinitypawling.org"]
         altFaculty = ""
         headStudent = ""
     }
@@ -98,14 +98,11 @@ class Activity{
         return dateFormatter.string(from: date)
     }
     
-
     public func getDueSimplified() -> String{
         let dateFormatter = DateFormatter()
 
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .short
-
-
 
         return dateFormatter.string(from: due)
     }
@@ -175,19 +172,15 @@ class Activity{
     public func getDate() -> Date{
         return date
     }
-    
-    //the function that sets due date according to a String
-    //Sky, If you are writing codes that others will need to use, please include comments
-    public func setDue(dueString: String){
+    public func setDue(dateString: String){
         let dateFormatter = DateFormatter()
 
         dateFormatter.dateStyle = .full
         dateFormatter.timeStyle = .full
-        self.due = (dateFormatter.date(from: dueString))!
+        self.date = (dateFormatter.date(from: dateString))!
     }
-    
     public func setDue(date: Date){
-        self.due = date
+        self.date = date
     }
     
     public func setDue(year: Int, month: Int, day: Int, hour: Int, minute: Int){
