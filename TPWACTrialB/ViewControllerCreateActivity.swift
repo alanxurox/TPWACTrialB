@@ -28,7 +28,10 @@ class ViewControllerCreateActivity: UIViewController{
             
             
             for textField in textFields{
+                //modify()
+                //if !(isNotEmpty(temp: name) && isNotEmpty(temp: place) && isNotEmpty(temp: maxStudent) && isNotEmpty(temp: headFaculty) && isNotEmpty(temp: altFaculty)){
                 
+                //A perhaps simpler solution
                 if (textField.text! == "" || textField.text!.contains(".") || textField.text!.contains("#") || textField.text!.contains("$") || textField.text!.contains("[") || textField.text!.contains("]")){
                     
                     let sendMailErrorAlert = UIAlertController(title: "Error", message: "Input cannot be empty and cannot contain \".\" \"#\" \"$\" \"[\" or \"]\"", preferredStyle: .alert)
