@@ -29,7 +29,7 @@ class Activity{
         location = "Your home"
         maxStudent = 5
         leadFaculty = "vmetcalf@trinitypawling.org"
-        currentStudents = ["jwang@trinitypawling.org", "tliu@trinitypawling.org"]
+        currentStudents = ["tliu@trinitypawling.org"]
         altFaculty = ""
         headStudent = ""
     }
@@ -113,6 +113,8 @@ class Activity{
 
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .short
+
+
 
         return dateFormatter.string(from: due)
     }
