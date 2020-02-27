@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleSignIn
+import Firebase
 
 class ViewControllerHome: UIViewController {
     //selection UICollection that holds all of the buttons in the menu
@@ -23,7 +24,40 @@ class ViewControllerHome: UIViewController {
         //customizes the back button
         let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backBarButton
+        
+        self.activities.text = ""
+        
+        ref.child("Activities").observeSingleEvent(of: .value) { snapshot in
+            print(snapshot.childrenCount) // I got the expected number of items
+            Activity.activityList = []
+            for oneAct in snapshot.children.allObjects as! [DataSnapshot] {
+                print(oneAct.value ?? 00)
+                let activity = Activity()
+                if (oneAct.value != nil){
+                    activity.setMaxStudent(maxStudent: oneAct.childSnapshot(forPath: "maxStudent").value as! Int)
+                    activity.setLeadFaculty(leadFaculty: oneAct.childSnapshot(forPath: "leadFaculty").value as! String)
+                    activity.setName(name: oneAct.childSnapshot(forPath: "name").value as! String)
+                    activity.setLocation(location: oneAct.childSnapshot(forPath: "location").value as! String)
+                    activity.setAltFaculty(altFaculty: oneAct.childSnapshot(forPath: "altFaculty").value as! String)
+                    activity.setHeadStudent(headStudent: oneAct.childSnapshot(forPath: "headStudent").value as! String)
+                    activity.setCurrentStudents(currentStudents: oneAct.childSnapshot(forPath: "currentStudents").value as! [String])
+                    activity.setDate(dateString: oneAct.childSnapshot(forPath: "date").value as! String)
+                    
+                    if activity.getCurrentStudents().contains(currentUser.getEmail()){
+                        self.activities.text = self.activities.text! + activity.getName() + ", " + activity.getDateSimplified() + "\n"
+                    }
+                }
+                Activity.activityList.append(activity)
+            }
+        }
     }
+    
+    @IBAction func next(_ sender: UIButton) {
+        
+    }
+    
+    @IBOutlet weak var activities: UILabel!
+    
     //on click menu function to activate the drop down menu
     @IBAction func onClickMenu(_ sender: UIButton) {
         Selection.forEach{ (button) in
