@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         
         
         //method to use email to determine user, not finished
-        let email = "tliu@trinitypawling.org"
+        /*let email = "tliu@trinitypawling.org"
         
         ref.child("Faculties").observeSingleEvent(of: .value) { snapshot in
            print(snapshot.childrenCount) // I got the expected number of items
@@ -35,7 +35,7 @@ class ViewController: UIViewController {
                
         }
         }
-        
+        */
         
         
         
