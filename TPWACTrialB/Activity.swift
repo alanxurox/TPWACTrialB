@@ -98,6 +98,16 @@ class Activity{
         return dateFormatter.string(from: date)
     }
     
+    //get the due date info and return as a string
+    public func getDueString() -> String{
+        let dateFormatter = DateFormatter()
+
+        dateFormatter.dateStyle = .full
+        dateFormatter.timeStyle = .full
+
+        return dateFormatter.string(from: due)
+    }
+    
     public func getDueSimplified() -> String{
         let dateFormatter = DateFormatter()
 
@@ -106,6 +116,7 @@ class Activity{
 
         return dateFormatter.string(from: due)
     }
+    
     
     public func isActivityAvailable() -> Bool{
         return (maxStudent > currentStudents.count)
