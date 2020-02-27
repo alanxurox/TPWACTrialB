@@ -47,6 +47,7 @@ class ViewControllerStudents: UIViewController {
     @IBOutlet weak var dueDate: UILabel!
     
     @IBAction func nextActivity(_ sender: UIButton) {
+        students.text = ""
         if (!activities.isEmpty){
             index = (index + 1) % activities.count
             titleText.text = activities[index].getName()
