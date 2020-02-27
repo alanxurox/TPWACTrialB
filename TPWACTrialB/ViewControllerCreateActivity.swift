@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewControllerCreateActivity: UIViewController {
+class ViewControllerCreateActivity: UIViewController{
 
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var place: UITextField!
@@ -16,45 +16,95 @@ class ViewControllerCreateActivity: UIViewController {
     @IBOutlet weak var headFaculty: UITextField!
     @IBOutlet weak var altFaculty: UITextField!
     @IBOutlet weak var date: UIDatePicker!
+    @IBOutlet weak var dueSwitch: UISwitch!
+    @IBOutlet weak var dueDate: UIDatePicker!
     
     @IBOutlet var textFields: [UITextField]!
     
     
     @IBAction func create(_ sender: UIButton) {
-        let newActivity : Activity = Activity()
-               newActivity.setName(name: name.text!)
 
-               newActivity.setLocation(location: place.text!)
-        if (Int(maxStudent.text!) != nil){
-               newActivity.setMaxStudent(maxStudent: Int(maxStudent.text!)!)
-        }
-               newActivity.setLeadFaculty(leadFaculty: headFaculty.text!)
-               newActivity.setAltFaculty(altFaculty: altFaculty.text!)
-               newActivity.setDate(date: date.date)
-               Activity.activityList.append(newActivity)
-        
-        ref.child("Activities").child(newActivity.getName()).setValue([
-        "date": newActivity.getDateString(),
-        "maxStudent": newActivity.getMaxStudent(),
-        "leadFaculty": newActivity.getLeadFaculty(),
-        "location": newActivity.getLocation(),
-        "currentStudents": newActivity.getCurrentStudents(),
-        "headStudent": newActivity.getHeadStudent(),
-        "altFaculty": newActivity.getAltFaculty(),
-        "name": newActivity.getName()])
-        
-        for textField in textFields{
+            let newActivity : Activity = Activity()
             
-            textField.text = ""
             
+            for textField in textFields{
+                
+                if (textField.text! == "" || textField.text!.contains(".") || textField.text!.contains("#") || textField.text!.contains("$") || textField.text!.contains("[") || textField.text!.contains("]")){
+                    
+                    let sendMailErrorAlert = UIAlertController(title: "Error", message: "Input cannot be empty and cannot contain \".\" \"#\" \"$\" \"[\" or \"]\"", preferredStyle: .alert)
+                    let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    sendMailErrorAlert.addAction(dismiss)
+                    self.present(sendMailErrorAlert, animated: true, completion: nil)
+                    
+                    return
+                }
+                
+            }
+                   newActivity.setName(name: name.text!)
+
+
+                   newActivity.setLocation(location: place.text!)
+            if (Int(maxStudent.text!) != nil){
+                   newActivity.setMaxStudent(maxStudent: Int(maxStudent.text!)!)
+            }
+                   newActivity.setLeadFaculty(leadFaculty: headFaculty.text!)
+                   newActivity.setAltFaculty(altFaculty: altFaculty.text!)
+                   newActivity.setDate(date: date.date)
+        
+                //yt:newActivity.setDue(date: dueDate.date) Waiting for TW's firebase
+        
+                   Activity.activityList.append(newActivity)
+            
+            ref.child("Activities").child(newActivity.getName()).setValue([
+            "date": newActivity.getDateString(),
+            "maxStudent": newActivity.getMaxStudent(),
+            "leadFaculty": newActivity.getLeadFaculty(),
+            "location": newActivity.getLocation(),
+            "currentStudents": newActivity.getCurrentStudents(),
+            "headStudent": newActivity.getHeadStudent(),
+            "altFaculty": newActivity.getAltFaculty(),
+            "name": newActivity.getName()])
+        
+            //yt: "due": newActivity.getDue() (Should be .getDateString()?) waiting for TW's firebase
+            
+            for textField in textFields{
+                
+                textField.text = ""
+                
+            }
+            
+            
+    //           }
         }
-        
-        
-//           }
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool{
+        let allowedCharacters = CharacterSet.decimalDigits
+        let characterSet = CharacterSet(charactersIn: string)
+        return allowedCharacters.isSuperset(of: characterSet)
     }
     
-
+    func isNotEmpty(temp :UITextField) -> Bool{
+        let text = temp.text
+        return !text!.isEmpty
+    }
+    
+    func specialSymbol(temp :UITextField) -> String{
+        var text = temp.text
+        text = text?.replacingOccurrences(of: ".", with: "")
+        text = text?.replacingOccurrences(of: "#", with: "#")
+        text = text?.replacingOccurrences(of: "$", with: "")
+        text = text?.replacingOccurrences(of: "[", with: "")
+        text = text?.replacingOccurrences(of: "]", with: "")
+        return text!
+    }
+    func modify(){
+        name.text = specialSymbol(temp: name)
+        place.text = specialSymbol(temp: place)
+        headFaculty.text = specialSymbol(temp: headFaculty)
+        altFaculty.text = specialSymbol(temp: altFaculty)
+    }
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -65,6 +115,7 @@ class ViewControllerCreateActivity: UIViewController {
         let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backBarButton
     }
+    
         
 
     /*
