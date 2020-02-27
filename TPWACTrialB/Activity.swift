@@ -46,6 +46,26 @@ class Activity{
         self.altFaculty = altFaculty
     }
     
+    public static func myActivity(userEmail : String) -> [Activity]{
+        var returnActivities : [Activity] = []
+        for activity in activityList{
+            if activity.getCurrentStudents().contains(userEmail){
+                returnActivities.append(activity)
+            }
+        }
+        return returnActivities
+    }
+    
+    public static func facultyActivity(userName : String) -> [Activity]{
+        var returnActivities : [Activity] = []
+        for activity in activityList{
+            if (activity.getLeadFaculty() == userName || activity.getAltFaculty() == userName){
+                returnActivities.append(activity)
+            }
+        }
+        return returnActivities
+    }
+    
     public func toDate(year: Int, month: Int, day: Int, hour: Int, minute: Int) -> Date{
         let calendar = Calendar.current
 
@@ -60,6 +80,15 @@ class Activity{
         return calendar.date(from: components)!
     }
     
+    public func getDateSimplified() -> String{
+        let dateFormatter = DateFormatter()
+
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+
+        return dateFormatter.string(from: date)
+    }
+    
     public func getDateString() -> String{
         let dateFormatter = DateFormatter()
 
@@ -67,6 +96,15 @@ class Activity{
         dateFormatter.timeStyle = .full
 
         return dateFormatter.string(from: date)
+    }
+    
+    public func getDueSimplified() -> String{
+        let dateFormatter = DateFormatter()
+
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+
+        return dateFormatter.string(from: due)
     }
     
     public func isActivityAvailable() -> Bool{
