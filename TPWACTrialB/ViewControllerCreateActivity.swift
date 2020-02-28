@@ -43,17 +43,26 @@ class ViewControllerCreateActivity: UIViewController{
                 }
                 
             }
+        if (Int(maxStudent.text!) != nil){
+            let sendMailErrorAlert = UIAlertController(title: "Error", message: "Max Student must be an Integer", preferredStyle: .alert)
+            let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
+            sendMailErrorAlert.addAction(dismiss)
+            self.present(sendMailErrorAlert, animated: true, completion: nil)
+            
+            return
+            
+        }
                    newActivity.setName(name: name.text!)
 
 
                    newActivity.setLocation(location: place.text!)
-            if (Int(maxStudent.text!) != nil){
+            
                    newActivity.setMaxStudent(maxStudent: Int(maxStudent.text!)!)
-            }
+         
                    newActivity.setLeadFaculty(leadFaculty: headFaculty.text!)
                    newActivity.setAltFaculty(altFaculty: altFaculty.text!)
                    newActivity.setDate(date: date.date)
-        
+                    newActivity.setDue(date: dueDate.date)
                 //yt:newActivity.setDue(date: dueDate.date) Waiting for TW's firebase
         
                    Activity.activityList.append(newActivity)
@@ -66,11 +75,17 @@ class ViewControllerCreateActivity: UIViewController{
             "currentStudents": [],  //newActivity.getCurrentStudents(),
             "headStudent": newActivity.getHeadStudent(),
             "altFaculty": newActivity.getAltFaculty(),
-            "name": newActivity.getName()])
+            "name": newActivity.getName(),
+            "due": newActivity.getDueString()])
         
             //yt: "due": newActivity.getDue() (Should be .getDateString()?) waiting for TW's firebase
             
             for textField in textFields{
+                
+                let sendMailErrorAlert = UIAlertController(title: "Success", message: "Activity Successfully Commited", preferredStyle: .alert)
+                let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
+                sendMailErrorAlert.addAction(dismiss)
+                self.present(sendMailErrorAlert, animated: true, completion: nil)
                 
                 textField.text = ""
                 
