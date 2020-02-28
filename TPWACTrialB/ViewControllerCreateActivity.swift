@@ -63,7 +63,7 @@ class ViewControllerCreateActivity: UIViewController{
             "maxStudent": newActivity.getMaxStudent(),
             "leadFaculty": newActivity.getLeadFaculty(),
             "location": newActivity.getLocation(),
-            "currentStudents": newActivity.getCurrentStudents(),
+            "currentStudents": [],  //newActivity.getCurrentStudents(),
             "headStudent": newActivity.getHeadStudent(),
             "altFaculty": newActivity.getAltFaculty(),
             "name": newActivity.getName()])
@@ -117,6 +117,10 @@ class ViewControllerCreateActivity: UIViewController{
         //customizes the back button
         let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backBarButton
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        headFaculty.text = currentUser.getEmail()
     }
     
         

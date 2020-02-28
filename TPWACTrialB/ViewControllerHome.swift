@@ -14,17 +14,9 @@ class ViewControllerHome: UIViewController {
     //selection UICollection that holds all of the buttons in the menu
     @IBOutlet var Selection: [UIButton]!
     @IBOutlet weak var ImageViewCalendar: UIImageView!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        //creates a clear navigation bar
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        //customizes the back button
-        let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        navigationItem.backBarButtonItem = backBarButton
-        
+    @IBOutlet weak var scroll: UIScrollView!
+    
+    override func viewDidAppear(_ animated: Bool) {
         self.activities.text = ""
         
         ref.child("Activities").observeSingleEvent(of: .value) { snapshot in
@@ -44,6 +36,8 @@ class ViewControllerHome: UIViewController {
                     activity.setDate(dateString: oneAct.childSnapshot(forPath: "date").value as! String)
                     
                     if activity.getCurrentStudents().contains(currentUser.getEmail()){
+                        //let activityLabel = UILabel.init()
+                        //activityLabel.frame = CGRect(x: 10, y: UIScreen)
                         self.activities.text = self.activities.text! + activity.getName() + ", " + activity.getDateSimplified() + "\n"
                     }
                 }
@@ -52,8 +46,16 @@ class ViewControllerHome: UIViewController {
         }
     }
     
-    @IBAction func next(_ sender: UIButton) {
-        
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        //creates a clear navigation bar
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        //customizes the back button
+        let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backBarButton
     }
     
     @IBOutlet weak var activities: UILabel!
