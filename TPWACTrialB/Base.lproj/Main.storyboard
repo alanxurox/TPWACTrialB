@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2ae-Xc-Eru">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2ae-Xc-Eru">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -211,13 +211,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKJ-L2-BJ7">
-                                        <rect key="frame" x="0.0" y="37" width="414" height="184"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <viewLayoutGuide key="contentLayoutGuide" id="wlz-GG-ues"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="Er7-hi-dqs"/>
@@ -247,7 +240,6 @@
                     <navigationItem key="navigationItem" id="lJO-is-CdC"/>
                     <connections>
                         <outlet property="ImageViewCalendar" destination="Ors-gG-Nv9" id="ejq-8g-XaO"/>
-                        <outlet property="activities" destination="LKJ-L2-BJ7" id="WOF-cU-2cA"/>
                         <outlet property="scroll" destination="RSB-XD-3St" id="kH6-f8-Wu0"/>
                         <outletCollection property="Selection" destination="xLD-wM-TYX" collectionClass="NSMutableArray" id="5nQ-JH-jdB"/>
                         <outletCollection property="Selection" destination="UdT-vC-jvW" collectionClass="NSMutableArray" id="Kd6-sT-Iod"/>
@@ -284,14 +276,25 @@
                     <view key="view" contentMode="scaleToFill" id="kP2-wj-b4t">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Qg-4C-v0B">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="2g7-sw-kVm"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="gyT-Zy-a2J"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="RC0-PY-kAD"/>
                     </view>
                     <navigationItem key="navigationItem" id="5fs-0y-3J2"/>
+                    <connections>
+                        <outlet property="scroll" destination="5Qg-4C-v0B" id="9UI-e5-swm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pjk-w3-L1K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2851" y="552"/>
+            <point key="canvasLocation" x="2850.7246376811595" y="551.11607142857144"/>
         </scene>
         <!--Create a new Activities-->
         <scene sceneID="PgV-E5-mCa">

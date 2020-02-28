@@ -33,8 +33,18 @@ class ViewControllerAvailibleAndSignUp: UIViewController {
         
     }
     
+    @IBOutlet weak var scroll: UIScrollView!
     
     override func viewDidAppear(_ animated: Bool) {
+        let screenWidth  = UIScreen.main.bounds.width
+        let screenHeight = UIScreen.main.bounds.height
+        
+        var currentHeight = 30
+        
+        for subview in self.scroll.subviews{
+             subview.removeFromSuperview()
+        }
+        
         //method to read activities from database
         ref.child("Activities").observeSingleEvent(of: .value) { snapshot in
             print(snapshot.childrenCount) // I got the expected number of items
@@ -51,11 +61,23 @@ class ViewControllerAvailibleAndSignUp: UIViewController {
                     activity.setHeadStudent(headStudent: oneAct.childSnapshot(forPath: "headStudent").value as! String)
                     activity.setCurrentStudents(currentStudents: oneAct.childSnapshot(forPath: "currentStudents").value as! [String])
                     activity.setDate(dateString: oneAct.childSnapshot(forPath: "date").value as! String)
+                    
+                    let activityLabel = UILabel.init()
+                    activityLabel.frame = CGRect(x: 0, y: currentHeight, width: Int(screenWidth), height: 30)
+                    activityLabel.text = "   " + activity.getName() + ", " + activity.getDateSimplified()
+                    activityLabel.textAlignment = .left
+                    activityLabel.font = UIFont(name: "Verdana", size: 20)
+                    self.scroll.addSubview(activityLabel)
+                    currentHeight += 30
                     activity.setDue(dueString: oneAct.childSnapshot(forPath: "due").value as! String)
                 }
                 Activity.activityList.append(activity)
             }
         }
+        
+        
+        
+        self.scroll.contentSize = CGSize(width: Int(screenWidth), height: currentHeight + 30)
     }
     
     //the method that will link to the button which sign students up for activities

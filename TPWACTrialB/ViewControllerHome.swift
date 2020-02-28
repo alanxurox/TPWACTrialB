@@ -36,7 +36,16 @@ class ViewControllerHome: UIViewController {
  */
     
     override func viewDidAppear(_ animated: Bool) {
-        self.activities.text = ""
+//        self.activities.text = ""
+        
+        let screenWidth  = UIScreen.main.bounds.width
+        let screenHeight = UIScreen.main.bounds.height
+        
+        var currentHeight = 30
+        
+        for subview in self.scroll.subviews{
+             subview.removeFromSuperview()
+        }
         
         
         //print(getNameFromEmail(aEmail: "tliu@trinitypawling.org"))
@@ -60,13 +69,18 @@ class ViewControllerHome: UIViewController {
                     activity.setDate(dateString: oneAct.childSnapshot(forPath: "date").value as! String)
                     
                     if activity.getCurrentStudents().contains(currentUser.getEmail()){
-                        //let activityLabel = UILabel.init()
-                        //activityLabel.frame = CGRect(x: 10, y: UIScreen)
-                        self.activities.text = self.activities.text! + activity.getName() + ", " + activity.getDateSimplified() + "\n"
+                        let activityLabel = UILabel.init()
+                        activityLabel.frame = CGRect(x: 0, y: currentHeight, width: Int(screenWidth), height: 30)
+                        activityLabel.text = activity.getName() + ", " + activity.getDateSimplified()
+                        activityLabel.textAlignment = .center
+                        self.scroll.addSubview(activityLabel)
+                        currentHeight += 30
+                        //self.activities.text = self.activities.text! + activity.getName() + ", " + activity.getDateSimplified() + "\n"
                     }
                 }
                 Activity.activityList.append(activity)
             }
+            self.scroll.contentSize = CGSize(width: Int(screenWidth), height: currentHeight + 30)//UIScreen.main.bounds.size
         }
     }
     
