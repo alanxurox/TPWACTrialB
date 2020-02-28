@@ -16,8 +16,32 @@ class ViewControllerHome: UIViewController {
     @IBOutlet weak var ImageViewCalendar: UIImageView!
     @IBOutlet weak var scroll: UIScrollView!
     
+    
+    /* get name from email, not finished
+    public func getNameFromEmail(aEmail: String) -> String{
+    
+    var name = ""
+    ref.child("Students").observeSingleEvent(of: .value) { snapshot in
+       print(snapshot.childrenCount) // I got the expected number of items
+       for oneAct in snapshot.children.allObjects as! [DataSnapshot] {
+           print(oneAct.value ?? 00)
+        let nmail = oneAct.childSnapshot(forPath: "email").value as! String
+        if (aEmail.isEqual(nmail)){
+            name = oneAct.childSnapshot(forPath: "Full Name").value as! String
+        }
+    }
+    }
+        return name
+    }
+ */
+    
     override func viewDidAppear(_ animated: Bool) {
         self.activities.text = ""
+        
+        
+        //print(getNameFromEmail(aEmail: "tliu@trinitypawling.org"))
+        
+        
         
         ref.child("Activities").observeSingleEvent(of: .value) { snapshot in
             print(snapshot.childrenCount) // I got the expected number of items

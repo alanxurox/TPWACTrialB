@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 class ViewControllerEditRemove: UIViewController {
 
     override func viewDidLoad() {
@@ -26,6 +26,7 @@ class ViewControllerEditRemove: UIViewController {
          
          */
         
+        //print("asdf" + name)
         // Do any additional setup after loading the view.
         //creates a clear navigation bar
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -34,6 +35,12 @@ class ViewControllerEditRemove: UIViewController {
         let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backBarButton
     }
+    
+    
+    
+    
+    
+    
     
 
     /*
