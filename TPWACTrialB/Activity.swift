@@ -183,15 +183,17 @@ class Activity{
     public func getDate() -> Date{
         return date
     }
-    public func setDue(dateString: String){
+    
+    public func setDue(dueString: String){
         let dateFormatter = DateFormatter()
 
         dateFormatter.dateStyle = .full
         dateFormatter.timeStyle = .full
-        self.date = (dateFormatter.date(from: dateString))!
+        self.due = (dateFormatter.date(from: dueString))!
     }
+    
     public func setDue(date: Date){
-        self.date = date
+        self.due = date
     }
     
     public func setDue(year: Int, month: Int, day: Int, hour: Int, minute: Int){

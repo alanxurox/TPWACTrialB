@@ -69,6 +69,7 @@ class ViewControllerAvailibleAndSignUp: UIViewController {
                     activityLabel.font = UIFont(name: "Verdana", size: 20)
                     self.scroll.addSubview(activityLabel)
                     currentHeight += 30
+                    activity.setDue(dueString: oneAct.childSnapshot(forPath: "due").value as! String)
                 }
                 Activity.activityList.append(activity)
             }
