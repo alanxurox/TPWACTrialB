@@ -19,6 +19,7 @@ class Activity{
     var currentStudents : [String]
     var headStudent : String
     var altFaculty : String
+    var description : String
     
     static var activityList : [Activity] = []
     
@@ -32,9 +33,10 @@ class Activity{
         currentStudents = ["jwang@trinitypawling.org", "tliu@trinitypawling.org"]
         altFaculty = ""
         headStudent = ""
+        description = ""
     }
     
-    init(name: String, date: Date, due: Date, location: String, maxStudent: Int, leadFaculty: String, currentStudents: [String], headStudent: String = "", altFaculty: String = ""){
+    init(name: String, date: Date, due: Date, location: String, maxStudent: Int, leadFaculty: String, currentStudents: [String], headStudent: String = "", altFaculty: String = "", description: String){
         self.name = name
         self.date = date
         self.due = due
@@ -44,6 +46,7 @@ class Activity{
         self.currentStudents = currentStudents
         self.headStudent = headStudent
         self.altFaculty = altFaculty
+        self.description = description
     }
     
     public static func myActivity(userEmail : String) -> [Activity]{
@@ -250,6 +253,14 @@ class Activity{
     
     public func getAltFaculty() -> String{
         return altFaculty
+    }
+    
+    public func setDescription(description: String){
+        self.description = description
+    }
+    
+    public func getDescription() -> String{
+        return description
     }
     
     
