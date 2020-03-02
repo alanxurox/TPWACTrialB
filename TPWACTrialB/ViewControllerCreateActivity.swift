@@ -135,7 +135,7 @@ class ViewControllerCreateActivity: UIViewController{
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        headFaculty.text = currentUser.getEmail()
+        //headFaculty.text = currentUser.getEmail()
     }
     
         
