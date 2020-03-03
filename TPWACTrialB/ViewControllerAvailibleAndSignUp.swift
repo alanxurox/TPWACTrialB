@@ -52,6 +52,7 @@ class ViewControllerAvailibleAndSignUp: UIViewController {
             for oneAct in snapshot.children.allObjects as! [DataSnapshot] {
                 print(oneAct.value ?? 00)
                 let activity = Activity()
+                
                 if (oneAct.value != nil){
                     activity.setMaxStudent(maxStudent: oneAct.childSnapshot(forPath: "maxStudent").value as! Int)
                     activity.setLeadFaculty(leadFaculty: oneAct.childSnapshot(forPath: "leadFaculty").value as! String)
