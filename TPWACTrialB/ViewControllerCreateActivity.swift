@@ -39,7 +39,7 @@ class ViewControllerCreateActivity: UIViewController{
                 return
             }
         }
-        if (Int(maxStudent.text!) == nil || Int(maxStudent.text!) ?? 00 > 2147683647 || Int(maxStudent.text!) ?? 00 <= 0){
+        if (Int(maxStudent.text!) == nil || Int(maxStudent.text!) ?? 00 > 2147483647 || Int(maxStudent.text!) ?? 00 <= 0){
             let sendMailErrorAlert = UIAlertController(title: "Error", message: "Max Student invalid", preferredStyle: .alert)
             let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
             sendMailErrorAlert.addAction(dismiss)
