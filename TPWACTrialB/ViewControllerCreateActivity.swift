@@ -43,7 +43,7 @@ class ViewControllerCreateActivity: UIViewController{
                 }
                 
             }
-        if (Int(maxStudent.text!) != nil){
+        if (Int(maxStudent.text!) == nil){
             let sendMailErrorAlert = UIAlertController(title: "Error", message: "Max Student must be an Integer", preferredStyle: .alert)
             let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
             sendMailErrorAlert.addAction(dismiss)
@@ -63,6 +63,7 @@ class ViewControllerCreateActivity: UIViewController{
                    newActivity.setAltFaculty(altFaculty: altFaculty.text!)
                    newActivity.setDate(date: date.date)
                     newActivity.setDue(date: dueDate.date)
+        newActivity.setDescription(description: "Description")
                 //yt:newActivity.setDue(date: dueDate.date) Waiting for TW's firebase
         
                    Activity.activityList.append(newActivity)
@@ -72,11 +73,12 @@ class ViewControllerCreateActivity: UIViewController{
             "maxStudent": newActivity.getMaxStudent(),
             "leadFaculty": newActivity.getLeadFaculty(),
             "location": newActivity.getLocation(),
-            "currentStudents": ["jwang@trinitypawling.org"],  //newActivity.getCurrentStudents(),
+            "currentStudents": [" "],  //newActivity.getCurrentStudents(),
             "headStudent": newActivity.getHeadStudent(),
             "altFaculty": newActivity.getAltFaculty(),
             "name": newActivity.getName(),
-            "due": newActivity.getDueString()])
+            "due": newActivity.getDueString(),
+                "description": newActivity.getDescription()])
         
             //yt: "due": newActivity.getDue() (Should be .getDateString()?) waiting for TW's firebase
             

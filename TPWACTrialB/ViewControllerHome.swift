@@ -67,6 +67,7 @@ class ViewControllerHome: UIViewController {
                     activity.setHeadStudent(headStudent: oneAct.childSnapshot(forPath: "headStudent").value as! String)
                     activity.setCurrentStudents(currentStudents: oneAct.childSnapshot(forPath: "currentStudents").value as! [String])
                     activity.setDate(dateString: oneAct.childSnapshot(forPath: "date").value as! String)
+                    activity.setDescription(description: oneAct.childSnapshot(forPath: "description").value as! String)
                     
                     if activity.getCurrentStudents().contains(currentUser.getEmail()){
                         let activityLabel = UILabel.init()
@@ -80,7 +81,7 @@ class ViewControllerHome: UIViewController {
                 }
                 Activity.activityList.append(activity)
             }
-            self.scroll.contentSize = CGSize(width: Int(screenWidth), height: currentHeight + 30)//UIScreen.main.bounds.size
+            self.scroll.contentSize = CGSize(width: Int(screenWidth), height: currentHeight + 30)
         }
     }
     
