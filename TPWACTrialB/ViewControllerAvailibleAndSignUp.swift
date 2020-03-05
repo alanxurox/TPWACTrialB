@@ -56,17 +56,20 @@ class ViewControllerAvailibleAndSignUp: UIViewController {
             var index : Int = 0
             for oneAct in snapshot.children.allObjects as! [DataSnapshot] {
                 print(oneAct.value ?? 00)
-                self.activity = Activity()
+                let activity = Activity()
+                
                 if (oneAct.value != nil){
-                    self.activity.setMaxStudent(maxStudent: oneAct.childSnapshot(forPath: "maxStudent").value as! Int)
-                    self.activity.setLeadFaculty(leadFaculty: oneAct.childSnapshot(forPath: "leadFaculty").value as! String)
-                    self.activity.setName(name: oneAct.childSnapshot(forPath: "name").value as! String)
-                    self.activity.setLocation(location: oneAct.childSnapshot(forPath: "location").value as! String)
-                    self.activity.setAltFaculty(altFaculty: oneAct.childSnapshot(forPath: "altFaculty").value as! String)
-                    self.activity.setHeadStudent(headStudent: oneAct.childSnapshot(forPath: "headStudent").value as! String)
-                    self.activity.setCurrentStudents(currentStudents: oneAct.childSnapshot(forPath: "currentStudents").value as! [String])
-                    self.activity.setDate(dateString: oneAct.childSnapshot(forPath: "date").value as! String)
-                    self.activity.setDescription(description: oneAct.childSnapshot(forPath: "description").value as! String)
+                    activity.setMaxStudent(maxStudent: oneAct.childSnapshot(forPath: "maxStudent").value as! Int)
+                    activity.setLeadFaculty(leadFaculty: oneAct.childSnapshot(forPath: "leadFaculty").value as! String)
+                    activity.setName(name: oneAct.childSnapshot(forPath: "name").value as! String)
+                    activity.setLocation(location: oneAct.childSnapshot(forPath: "location").value as! String)
+                    activity.setAltFaculty(altFaculty: oneAct.childSnapshot(forPath: "altFaculty").value as! String)
+                    activity.setHeadStudent(headStudent: oneAct.childSnapshot(forPath: "headStudent").value as! String)
+                    activity.setCurrentStudents(currentStudents: oneAct.childSnapshot(forPath: "currentStudents").value as! [String])
+                    activity.setDate(dateString: oneAct.childSnapshot(forPath: "date").value as! String)
+                    activity.setDescription(description: oneAct.childSnapshot(forPath: "description").value as! String)
+                    
+                    
                     
                     let activityLabel = UILabel.init()
                     
@@ -75,7 +78,7 @@ class ViewControllerAvailibleAndSignUp: UIViewController {
                     activityLabel.numberOfLines = 0
                     activityLabel.frame = CGRect(x: 20, y: currentHeight, width: Int(screenWidth) - 20, height: 30 * lines)
                     activityLabel.textAlignment = .left
-                    activityLabel.font = UIFont(name: "System", size: 20)
+                    activityLabel.font = UIFont(name: "Verdana", size: 20)
                     self.scroll.addSubview(activityLabel)
                     currentHeight += 30 * lines
                     
@@ -109,7 +112,7 @@ class ViewControllerAvailibleAndSignUp: UIViewController {
                     
                     currentHeight += 60
                 }
-                Activity.activityList.append(self.activity)
+                Activity.activityList.append(activity)
             }
             self.scroll.contentSize = CGSize(width: Int(screenWidth), height: currentHeight + 30)
         }

@@ -23,26 +23,22 @@ class ViewControllerCreateActivity: UIViewController{
     
     
     @IBAction func create(_ sender: UIButton) {
-
-            let newActivity : Activity = Activity()
-            
-            
-            for textField in textFields{
+        let newActivity : Activity = Activity()
+        for textField in textFields{
                 //modify()
                 //if !(isNotEmpty(temp: name) && isNotEmpty(temp: place) && isNotEmpty(temp: maxStudent) && isNotEmpty(temp: headFaculty) && isNotEmpty(temp: altFaculty)){
                 
                 //A perhaps simpler solution
-                if (textField.text! == "" || textField.text!.contains(".") || textField.text!.contains("#") || textField.text!.contains("$") || textField.text!.contains("[") || textField.text!.contains("]")){
+            if (textField.text! == "" || textField.text!.contains(".") || textField.text!.contains("#") || textField.text!.contains("$") || textField.text!.contains("[") || textField.text!.contains("]")){
                     
-                    let sendMailErrorAlert = UIAlertController(title: "Error", message: "Input cannot be empty and cannot contain \".\" \"#\" \"$\" \"[\" or \"]\"", preferredStyle: .alert)
-                    let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
-                    sendMailErrorAlert.addAction(dismiss)
-                    self.present(sendMailErrorAlert, animated: true, completion: nil)
+                let sendMailErrorAlert = UIAlertController(title: "Error", message: "Input cannot be empty and cannot contain \".\" \"#\" \"$\" \"[\" or \"]\"", preferredStyle: .alert)
+                let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
+                sendMailErrorAlert.addAction(dismiss)
+                self.present(sendMailErrorAlert, animated: true, completion: nil)
                     
-                    return
-                }
-                
+                return
             }
+        }
         if (Int(maxStudent.text!) == nil){
             let sendMailErrorAlert = UIAlertController(title: "Error", message: "Max Student must be an Integer", preferredStyle: .alert)
             let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -52,23 +48,23 @@ class ViewControllerCreateActivity: UIViewController{
             return
             
         }
-                   newActivity.setName(name: name.text!)
+        newActivity.setName(name: name.text!)
 
 
-                   newActivity.setLocation(location: place.text!)
+        newActivity.setLocation(location: place.text!)
             
-                   newActivity.setMaxStudent(maxStudent: Int(maxStudent.text!)!)
+        newActivity.setMaxStudent(maxStudent: Int(maxStudent.text!)!)
          
-                   newActivity.setLeadFaculty(leadFaculty: headFaculty.text!)
-                   newActivity.setAltFaculty(altFaculty: altFaculty.text!)
-                   newActivity.setDate(date: date.date)
-                    newActivity.setDue(date: dueDate.date)
-        newActivity.setDescription(description: "Description")
+        newActivity.setLeadFaculty(leadFaculty: headFaculty.text!)
+        newActivity.setAltFaculty(altFaculty: altFaculty.text!)
+        newActivity.setDate(date: date.date)
+        newActivity.setDue(date: dueDate.date)
+        newActivity.setDescription(description: "description")
                 //yt:newActivity.setDue(date: dueDate.date) Waiting for TW's firebase
         
-                   Activity.activityList.append(newActivity)
+        Activity.activityList.append(newActivity)
             
-            ref.child("Activities").child(newActivity.getName()).setValue([
+        ref.child("Activities").child(newActivity.getName()).setValue([
             "date": newActivity.getDateString(),
             "maxStudent": newActivity.getMaxStudent(),
             "leadFaculty": newActivity.getLeadFaculty(),
@@ -78,24 +74,21 @@ class ViewControllerCreateActivity: UIViewController{
             "altFaculty": newActivity.getAltFaculty(),
             "name": newActivity.getName(),
             "due": newActivity.getDueString(),
-                "description": newActivity.getDescription()])
+            "description": newActivity.getDescription()])
         
             //yt: "due": newActivity.getDue() (Should be .getDateString()?) waiting for TW's firebase
             
-            for textField in textFields{
+        for textField in textFields{
                 
-                let sendMailErrorAlert = UIAlertController(title: "Success", message: "Activity Successfully Commited", preferredStyle: .alert)
-                let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
+            let sendMailErrorAlert = UIAlertController(title: "Success", message: "Activity Successfully Commited", preferredStyle: .alert)
+            let dismiss = UIAlertAction(title: "OK", style: .default, handler: nil)
                 sendMailErrorAlert.addAction(dismiss)
-                self.present(sendMailErrorAlert, animated: true, completion: nil)
+            self.present(sendMailErrorAlert, animated: true, completion: nil)
                 
-                textField.text = ""
-                
-            }
+            textField.text = ""
             
-            
-    //           }
         }
+    }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool{
         let allowedCharacters = CharacterSet.decimalDigits
