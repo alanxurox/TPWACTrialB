@@ -33,6 +33,10 @@ class ViewControllerAvailibleAndSignUp: UIViewController {
         
     }
     
+    var activity = Activity()
+    //var selfActivityList : [Activity] = []
+    var buttonList : [UIButton] = []
+    
     @IBOutlet weak var scroll: UIScrollView!
     
     override func viewDidAppear(_ animated: Bool) {
@@ -49,6 +53,7 @@ class ViewControllerAvailibleAndSignUp: UIViewController {
         ref.child("Activities").observeSingleEvent(of: .value) { snapshot in
             print(snapshot.childrenCount) // I got the expected number of items
             Activity.activityList = []
+            var index : Int = 0
             for oneAct in snapshot.children.allObjects as! [DataSnapshot] {
                 print(oneAct.value ?? 00)
                 let activity = Activity()
@@ -67,21 +72,67 @@ class ViewControllerAvailibleAndSignUp: UIViewController {
                     
                     
                     let activityLabel = UILabel.init()
-                    activityLabel.frame = CGRect(x: 0, y: currentHeight, width: Int(screenWidth), height: 30)
-                    activityLabel.text = "   " + activity.getName() + ", " + activity.getDateSimplified()
+                    
+                    activityLabel.text = "" + self.activity.getName() + ", " + self.activity.getDateSimplified() + ", meet at " + self.activity.getLocation()
+                    var lines : Int = activityLabel.text!.count / 30 + 1
+                    activityLabel.numberOfLines = 0
+                    activityLabel.frame = CGRect(x: 20, y: currentHeight, width: Int(screenWidth) - 20, height: 30 * lines)
                     activityLabel.textAlignment = .left
                     activityLabel.font = UIFont(name: "Verdana", size: 20)
                     self.scroll.addSubview(activityLabel)
-                    currentHeight += 30
-                    activity.setDue(dueString: oneAct.childSnapshot(forPath: "due").value as! String)
+                    currentHeight += 30 * lines
+                    
+                    if (self.activity.getDescription() != ""){
+                        var lines : Int = self.activity.getDescription().count / 30 + 1
+                        let descriptionLabel = UILabel.init()
+                        descriptionLabel.frame = CGRect(x: 40, y: currentHeight, width: Int(screenWidth) - 80, height: 30 * lines)
+                        descriptionLabel.text = self.activity.getDescription()
+                        descriptionLabel.textAlignment = .center
+                        descriptionLabel.numberOfLines = 0
+                        descriptionLabel.font = UIFont(name: "System", size: 20)
+                        self.scroll.addSubview(descriptionLabel)
+                        currentHeight += 30 * lines
+                    }
+                    
+                    let signButton = UIButton.init(type: .roundedRect)
+                    signButton.setTitle("Sign up", for: .normal)
+                    signButton.addTarget(self, action: #selector(self.buttonClicked(_:)), for: .touchUpInside)
+                    signButton.tag = index
+                    index += 1
+                    signButton.frame = CGRect(x: Int(screenWidth) - 120, y: currentHeight, width: 120, height: 30)
+                    self.buttonList.append(signButton)
+                    //self.selfActivityList.append(self.activity)
+                    self.scroll.addSubview(signButton)
+                    
+                    if self.activity.getCurrentStudents().contains(currentUser.getEmail()){
+                        signButton.isUserInteractionEnabled = false
+                        signButton.setTitle("Signed", for: .normal)
+                        signButton.setTitleColor(UIColor.systemGray, for: .normal)
+                    }
+                    
+                    currentHeight += 60
                 }
                 Activity.activityList.append(activity)
             }
+            self.scroll.contentSize = CGSize(width: Int(screenWidth), height: currentHeight + 30)
         }
-        
-        
-        
-        self.scroll.contentSize = CGSize(width: Int(screenWidth), height: currentHeight + 30)
+    }
+    
+    @objc func buttonClicked(_ sender : UIButton){
+        //var count : Int = 0
+        for count in 0...Activity.activityList.count{
+            if (sender.tag == count){
+                var currentStudents = Activity.activityList[count].getCurrentStudents()
+                currentStudents.append(currentUser.getEmail())
+                Activity.activityList[count].setCurrentStudents(currentStudents: currentStudents)
+                var name = Activity.activityList[count].getName()
+                ref.child("Activities/\(name)/currentStudents").setValue(Activity.activityList[count].getCurrentStudents())
+            }
+        }
+        sender.isUserInteractionEnabled = false
+        sender.setTitle("Signed", for: .normal)
+        sender.setTitleColor(UIColor.systemGray, for: .normal)
+        //self.activity
     }
     
     //the method that will link to the button which sign students up for activities

@@ -81,7 +81,7 @@ class ViewControllerHome: UIViewController {
                 }
                 Activity.activityList.append(activity)
             }
-            self.scroll.contentSize = CGSize(width: Int(screenWidth), height: currentHeight + 30)//UIScreen.main.bounds.size
+            self.scroll.contentSize = CGSize(width: Int(screenWidth), height: currentHeight + 30)
         }
     }
     

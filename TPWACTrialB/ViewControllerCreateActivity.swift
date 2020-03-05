@@ -69,7 +69,7 @@ class ViewControllerCreateActivity: UIViewController{
             "maxStudent": newActivity.getMaxStudent(),
             "leadFaculty": newActivity.getLeadFaculty(),
             "location": newActivity.getLocation(),
-            "currentStudents": ["jwang@trinitypawling.org"],  //newActivity.getCurrentStudents(),
+            "currentStudents": [" "],  //newActivity.getCurrentStudents(),
             "headStudent": newActivity.getHeadStudent(),
             "altFaculty": newActivity.getAltFaculty(),
             "name": newActivity.getName(),
