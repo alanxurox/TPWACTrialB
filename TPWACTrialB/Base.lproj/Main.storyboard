@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2ae-Xc-Eru">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2ae-Xc-Eru">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -138,16 +138,6 @@
                                             <segue destination="Igp-9l-UfV" kind="show" id="7Pp-vt-EIT"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UdT-vC-jvW">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                                        <color key="backgroundColor" red="0.86807804399999999" green="0.79158953219999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="UkW-Xe-bHn"/>
-                                        </constraints>
-                                        <state key="normal" title="Quit Activities">
-                                            <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                    </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLD-wM-TYX">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                         <color key="backgroundColor" red="0.86807804404145084" green="0.79158953221465123" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -189,8 +179,6 @@
                                     <constraint firstItem="Hm8-fg-MUj" firstAttribute="leading" secondItem="AHR-dd-AWL" secondAttribute="leading" id="UsS-49-ufz"/>
                                     <constraint firstAttribute="trailing" secondItem="Gcs-Mq-Vlg" secondAttribute="trailing" id="btn-3o-5Fu"/>
                                     <constraint firstItem="a0D-KL-urd" firstAttribute="leading" secondItem="AHR-dd-AWL" secondAttribute="leading" id="wlT-uV-fex"/>
-                                    <constraint firstAttribute="trailing" secondItem="UdT-vC-jvW" secondAttribute="trailing" id="y3C-x4-fAG"/>
-                                    <constraint firstItem="UdT-vC-jvW" firstAttribute="leading" secondItem="AHR-dd-AWL" secondAttribute="leading" id="zjN-f6-3eq"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fE-1w-eU9">
@@ -244,7 +232,6 @@
                         <outlet property="ImageViewCalendar" destination="Ors-gG-Nv9" id="ejq-8g-XaO"/>
                         <outlet property="scroll" destination="RSB-XD-3St" id="kH6-f8-Wu0"/>
                         <outletCollection property="Selection" destination="xLD-wM-TYX" collectionClass="NSMutableArray" id="5nQ-JH-jdB"/>
-                        <outletCollection property="Selection" destination="UdT-vC-jvW" collectionClass="NSMutableArray" id="Kd6-sT-Iod"/>
                         <outletCollection property="Selection" destination="aYG-YW-8rs" collectionClass="NSMutableArray" id="mmv-Ql-flx"/>
                         <outletCollection property="Selection" destination="a0D-KL-urd" collectionClass="NSMutableArray" id="cCN-aa-ol0"/>
                         <outletCollection property="Selection" destination="Hm8-fg-MUj" collectionClass="NSMutableArray" id="X5K-j2-ZOV"/>
