@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import UserNotifications
 class ViewControllerAvailibleAndSignUp: UIViewController {
 
     override func viewDidLoad() {
@@ -132,14 +133,23 @@ class ViewControllerAvailibleAndSignUp: UIViewController {
                     sender.setTitle("Quit Activity", for: .normal)
                     sender.setTitleColor(UIColor.systemRed, for: .normal)
                 }else{
-                    var index : Int
-                    index = currentStudents.firstIndex(of: currentUser.getEmail())!
-                    currentStudents.remove(at: index)
-                    Activity.activityList[count].setCurrentStudents(currentStudents: currentStudents)
-                    var name = Activity.activityList[count].getName()
-                    ref.child("Activities/\(name)/currentStudents").setValue(Activity.activityList[count].getCurrentStudents())
-                        sender.setTitle("Sign up", for: .normal)
-                        sender.setTitleColor(UIColor.systemBlue, for: .normal)
+                    let alert = UIAlertController(title: "Just to confirm", message: "Are you sure you want to quit?", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Absolutely sure", style: UIAlertAction.Style.default, handler: {(action) in
+                        var index : Int
+                        index = currentStudents.firstIndex(of: currentUser.getEmail())!
+                        currentStudents.remove(at: index)
+                        Activity.activityList[count].setCurrentStudents(currentStudents: currentStudents)
+                        var name = Activity.activityList[count].getName()
+                        ref.child("Activities/\(name)/currentStudents").setValue(Activity.activityList[count].getCurrentStudents())
+                            sender.setTitle("Sign up", for: .normal)
+                            sender.setTitleColor(UIColor.systemBlue, for: .normal)
+                        
+                    }))
+                    alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.default, handler: {(action) in
+                        alert.dismiss(animated: true, completion: nil)
+                        
+                    }))
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
         }
