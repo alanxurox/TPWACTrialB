@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import UserNotifications
 class ViewControllerAvailibleAndSignUp: UIViewController {
 
     override func viewDidLoad() {
@@ -33,7 +34,7 @@ class ViewControllerAvailibleAndSignUp: UIViewController {
         
     }
     
-    var activity = Activity()
+    //var activity = Activity()
     //var selfActivityList : [Activity] = []
     var buttonList : [UIButton] = []
     
@@ -48,6 +49,7 @@ class ViewControllerAvailibleAndSignUp: UIViewController {
         for subview in self.scroll.subviews{
              subview.removeFromSuperview()
         }
+        
         
         //method to read activities from database
         ref.child("Activities").observeSingleEvent(of: .value) { snapshot in
@@ -73,20 +75,20 @@ class ViewControllerAvailibleAndSignUp: UIViewController {
                     
                     let activityLabel = UILabel.init()
                     
-                    activityLabel.text = "" + self.activity.getName() + ", " + self.activity.getDateSimplified() + ", meet at " + self.activity.getLocation()
+                    activityLabel.text = "" + activity.getName() + ", " + activity.getDateSimplified() + ", meet at " + activity.getLocation()
                     var lines : Int = activityLabel.text!.count / 30 + 1
                     activityLabel.numberOfLines = 0
                     activityLabel.frame = CGRect(x: 20, y: currentHeight, width: Int(screenWidth) - 20, height: 30 * lines)
                     activityLabel.textAlignment = .left
-                    activityLabel.font = UIFont(name: "Verdana", size: 20)
+                    activityLabel.font = UIFont(name: "System", size: 20)
                     self.scroll.addSubview(activityLabel)
                     currentHeight += 30 * lines
                     
-                    if (self.activity.getDescription() != ""){
-                        var lines : Int = self.activity.getDescription().count / 30 + 1
+                    if (activity.getDescription() != ""){
+                        var lines : Int = activity.getDescription().count / 30 + 1
                         let descriptionLabel = UILabel.init()
                         descriptionLabel.frame = CGRect(x: 40, y: currentHeight, width: Int(screenWidth) - 80, height: 30 * lines)
-                        descriptionLabel.text = self.activity.getDescription()
+                        descriptionLabel.text = activity.getDescription()
                         descriptionLabel.textAlignment = .center
                         descriptionLabel.numberOfLines = 0
                         descriptionLabel.font = UIFont(name: "System", size: 20)
@@ -103,11 +105,11 @@ class ViewControllerAvailibleAndSignUp: UIViewController {
                     self.buttonList.append(signButton)
                     //self.selfActivityList.append(self.activity)
                     self.scroll.addSubview(signButton)
-                    
-                    if self.activity.getCurrentStudents().contains(currentUser.getEmail()){
-                        signButton.isUserInteractionEnabled = false
-                        signButton.setTitle("Signed", for: .normal)
-                        signButton.setTitleColor(UIColor.systemGray, for: .normal)
+                    if (activity.getCurrentStudents().contains(currentUser.getEmail())){
+                        //signButton.isUserInteractionEnabled = false
+                        
+                        signButton.setTitle("Quit Activity", for: .normal)
+                        signButton.setTitleColor(UIColor.systemRed, for: .normal)
                     }
                     
                     currentHeight += 60
@@ -123,16 +125,34 @@ class ViewControllerAvailibleAndSignUp: UIViewController {
         for count in 0...Activity.activityList.count{
             if (sender.tag == count){
                 var currentStudents = Activity.activityList[count].getCurrentStudents()
-                currentStudents.append(currentUser.getEmail())
-                Activity.activityList[count].setCurrentStudents(currentStudents: currentStudents)
-                var name = Activity.activityList[count].getName()
+                if (sender.currentTitle == "Sign up"){
+                    currentStudents.append(currentUser.getEmail())
+                    Activity.activityList[count].setCurrentStudents(currentStudents: currentStudents)
+                    var name = Activity.activityList[count].getName()
                 ref.child("Activities/\(name)/currentStudents").setValue(Activity.activityList[count].getCurrentStudents())
+                    sender.setTitle("Quit Activity", for: .normal)
+                    sender.setTitleColor(UIColor.systemRed, for: .normal)
+                }else{
+                    let alert = UIAlertController(title: "Just to confirm", message: "Are you sure you want to quit?", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Absolutely sure", style: UIAlertAction.Style.default, handler: {(action) in
+                        var index : Int
+                        index = currentStudents.firstIndex(of: currentUser.getEmail())!
+                        currentStudents.remove(at: index)
+                        Activity.activityList[count].setCurrentStudents(currentStudents: currentStudents)
+                        var name = Activity.activityList[count].getName()
+                        ref.child("Activities/\(name)/currentStudents").setValue(Activity.activityList[count].getCurrentStudents())
+                            sender.setTitle("Sign up", for: .normal)
+                            sender.setTitleColor(UIColor.systemBlue, for: .normal)
+                        
+                    }))
+                    alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.default, handler: {(action) in
+                        alert.dismiss(animated: true, completion: nil)
+                        
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
         }
-        sender.isUserInteractionEnabled = false
-        sender.setTitle("Signed", for: .normal)
-        sender.setTitleColor(UIColor.systemGray, for: .normal)
-        //self.activity
     }
     
     //the method that will link to the button which sign students up for activities

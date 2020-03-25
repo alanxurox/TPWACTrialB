@@ -9,6 +9,7 @@
 import UIKit
 //email message import
 import MessageUI
+import UserNotifications
 
 class ViewControllerCheckIn: UIViewController, MFMailComposeViewControllerDelegate {
 

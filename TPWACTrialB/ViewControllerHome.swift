@@ -9,6 +9,7 @@
 import UIKit
 import GoogleSignIn
 import Firebase
+import UserNotifications
 
 class ViewControllerHome: UIViewController {
     //selection UICollection that holds all of the buttons in the menu
